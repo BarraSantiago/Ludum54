@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : MonoBehaviour, ITarget
+public class TowerController : AttackableObject
 {
     GameManager gm;
 
@@ -16,8 +16,6 @@ public class TowerController : MonoBehaviour, ITarget
     [SerializeField] bool isMainTower;
     [HideInInspector] public bool towerIsAlive;
 
-    float currentHealth;
-
     List<ITarget> targets;
     float counter;
 
@@ -26,20 +24,15 @@ public class TowerController : MonoBehaviour, ITarget
         gm = GameManager.Get();
         targets = new List<ITarget>();
 
-        currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
     }
 
-    public void ReceiveDamage(float damage)
+    public void Dies()
     {
-        currentHealth -= damage;
+        (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
 
-        if (currentHealth < 0)
-        {
-            (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
-
-            //Animacion de destruccion del modelo
-            model.gameObject.SetActive(false);
-        }
+        //Animacion de destruccion del modelo
+        model.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
