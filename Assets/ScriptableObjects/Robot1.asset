@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsName: Robot1
   cost: 1
-  movementSpeed: 10
+  movementSpeed: 5
   maxHealth: 50
-  damage: 10
+  damage: 50
   attackSpeed: 1
   range: 5
+  attackCooldown: 1
   attackType: 0
   ghostPrefab: {fileID: 121089003984463748, guid: cb5899273b189db4b836138fff2bdd74, type: 3}
   unitPrefab: {fileID: 121089003984463748, guid: cb5899273b189db4b836138fff2bdd74, type: 3}
