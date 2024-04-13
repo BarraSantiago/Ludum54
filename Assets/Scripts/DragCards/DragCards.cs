@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginDragHandler
+public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] UnitsDataSO unitToSpawn;
-
+    [SerializeField] float tileSize = 5f; // Tamaño de la tile
     [SerializeField] LayerMask rayMask;
     private float maxRayDist = Mathf.Infinity;
 
     private GameObject ghostInstance;
     private GameObject ghostModel;
 
+    Vector3 halfFloorHeight;
     Vector2 lastMousePosition;
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -22,13 +23,15 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginDrag
             return;
         }
 
-
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, maxRayDist, rayMask))
         {
-            ghostInstance = Instantiate(unitToSpawn.unitPrefab, hit.point, unitToSpawn.unitPrefab.transform.rotation);
+            Vector3 hitPoint = hit.point;
+            // Ajustar la posición a la rejilla de tiles
+            hitPoint = SnapToGrid(hitPoint);
+            ghostInstance = Instantiate(unitToSpawn.ghostPrefab, hitPoint, unitToSpawn.ghostPrefab.transform.rotation);
         }
     }
 
@@ -44,9 +47,13 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginDrag
 
         if (Physics.Raycast(ray, out hit, maxRayDist, rayMask))
         {
-            float offset = hit.transform.localScale.y; //Es lo que le sumamos en y al ghost, que es la mitad del tamaño del tile en y
+            float offset = hit.transform.localScale.y;
+            halfFloorHeight = new Vector3(0, offset / 2, 0);
 
-            SetGhostPositionWithMousePos(hit.point);
+            Vector3 hitPoint = hit.point;
+            // Ajustar la posición a la rejilla de tiles
+            hitPoint = SnapToGrid(hitPoint);
+            SetGhostPositionWithMousePos(hitPoint);
         }
 
         lastMousePosition = eventData.position;
@@ -60,15 +67,23 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler,IBeginDrag
             return;
         }
 
-        //Aca habria que hacer la comprobacion de si te alcanza el mana
+        // Aquí podrías hacer comprobaciones adicionales, como si el movimiento es válido, si se puede colocar en esa posición, etc.
     }
 
     private void SetGhostPositionWithMousePos(Vector3 position)
     {
         if (ghostInstance)
         {
-            ghostInstance.transform.position = position;
+            ghostInstance.transform.position = position + halfFloorHeight;
             ghostInstance.transform.SetAsLastSibling();
         }
+    }
+
+    // Función para ajustar una posición a la rejilla de tiles
+    private Vector3 SnapToGrid(Vector3 position)
+    {
+        float snappedX = Mathf.Round(position.x / tileSize) * tileSize;
+        float snappedZ = Mathf.Round(position.z / tileSize) * tileSize;
+        return new Vector3(snappedX, position.y, snappedZ);
     }
 }
