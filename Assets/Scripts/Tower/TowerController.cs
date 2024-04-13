@@ -24,6 +24,7 @@ public class TowerController : AttackableObject
         gm = GameManager.Get();
         targets = new List<AttackableObject>();
 
+
         SetTeam(team);
         SetMaxHealth(maxHealth);
     }
