@@ -18,7 +18,12 @@ public class BasicSoldier : MonoBehaviour
         OnSoldierInstantiated();
     }
 
-   protected virtual void  OnSoldierInstantiated()
+    public void SetCardData(UnitsDataSO data)
+    {
+        unitsData = data;
+    }
+
+    protected virtual void OnSoldierInstantiated()
     {
         if (unitsData.invocationSound)
         {

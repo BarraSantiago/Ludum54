@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 800229619}
   - component: {fileID: 800229618}
   - component: {fileID: 800229617}
+  - component: {fileID: 800229620}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -490,8 +491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -844.4087, y: -445.90222}
-  m_SizeDelta: {x: 137.4328, y: 103.5003}
+  m_AnchoredPosition: {x: -805.9303, y: -418.61517}
+  m_SizeDelta: {x: 214.3896, y: 158.0743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800229617
 MonoBehaviour:
@@ -575,6 +576,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800229615}
   m_CullTransparentMesh: 1
+--- !u!114 &800229620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800229615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab94a707ca11d644bccb2c7ab7efb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToSpawn: {fileID: 11400000, guid: 3856c7695e1eb004793c3d8cf02fcb22, type: 2}
+  rayMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &830774186
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +649,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 'Robot 1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
