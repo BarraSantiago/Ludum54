@@ -6,6 +6,7 @@ public class AttackableObject : MonoBehaviour, Attackable
     private Team team = default;
 
     public Team Team { get => team; }
+    public bool Alive { get => health > 0; }
 
     public void SetMaxHealth(float maxHealth)
     {
