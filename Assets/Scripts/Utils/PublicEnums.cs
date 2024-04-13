@@ -1,7 +1,7 @@
 ﻿public enum AttackType
 {
-    SingleTarget,
-    Splash,
+    Melee,
+    Range
 }
 
 /// <summary>
