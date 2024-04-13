@@ -9,6 +9,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     [SerializeField] UnitsDataSO unitToSpawn;
     [SerializeField] float tileSize; // Tama�o de la tile
     [SerializeField] LayerMask rayMask;
+    [SerializeField] Transform[] limits = null;
 
     [Header("UI")]
     [SerializeField] private Button btnBuy = null;
@@ -141,11 +142,17 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
         }
 
         isDraggin = false;
-
-        Instantiate(unitToSpawn.unitPrefab, ghostInstance.transform.position, unitToSpawn.unitPrefab.transform.rotation);
         Destroy(ghostInstance);
 
-        ToggleCooldown(true);
+        if (ghostInstance.transform.position.z < limits[0].position.z && ghostInstance.transform.position.z > limits[1].position.z &&
+            ghostInstance.transform.position.x > limits[0].position.x && ghostInstance.transform.position.x < limits[1].position.x)
+        {
+            GameObject unit = Instantiate(unitToSpawn.unitPrefab, ghostInstance.transform.position, unitToSpawn.unitPrefab.transform.rotation);
+            
+            unit.GetComponent<BasicUnit>().SetUnitData(unitToSpawn, Team.BlueTeam);
+
+            ToggleCooldown(true);
+        }       
     }
 
     private void SetGhostPositionWithMousePos(Vector3 position)
@@ -161,7 +168,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     {
         float snappedX = Mathf.Round(position.x / tileSize) * tileSize;
         float snappedZ = Mathf.Round(position.z / tileSize) * tileSize;
-        return new Vector3(snappedX, position.y, snappedZ);
+        return new Vector3((int)snappedX, position.y, (int)snappedZ);
     }
 
     private void CheckForCancelInvocation()

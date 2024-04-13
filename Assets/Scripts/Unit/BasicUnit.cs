@@ -28,11 +28,11 @@ public class BasicUnit : AttackableObject
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Start()
+    protected override void Start()
     {
         //debug, this should be set by an outside system
         OnUnitInstantiated();
-        SetUnitData(unitData, Team.RedTeam);
+        base.Start();
     }
 
     private void FixedUpdate()
