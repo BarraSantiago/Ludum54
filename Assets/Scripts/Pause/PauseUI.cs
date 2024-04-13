@@ -6,12 +6,12 @@ public class PauseUI : MonoBehaviour
 {
     [SerializeField] private GameObject holder = null;
     [SerializeField] private Button continueBtn = null;
-    [SerializeField] private Button exitBtn = null;
+    [SerializeField] private Button menuBtn = null;
 
     private void Start()
     {
         continueBtn.onClick.AddListener(Continue);
-        exitBtn.onClick.AddListener(BackToMenu);
+        menuBtn.onClick.AddListener(BackToMenu);
     }
 
     public void TogglePause(bool status)
