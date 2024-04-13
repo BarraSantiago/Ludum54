@@ -23,7 +23,7 @@ public class AttackableObject : MonoBehaviour, Attackable
     {
         this.team = team;
     }
-    private void Start()
+    protected virtual void Start()
     {
         if (healthBarController)
         {
