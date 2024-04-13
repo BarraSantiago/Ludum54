@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,10 +9,16 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
     private float maxRayDist = Mathf.Infinity;
 
     private GameObject ghostInstance;
-    private GameObject ghostModel;
 
     Vector3 halfFloorHeight;
-    Vector2 lastMousePosition;
+    bool isDraggin;
+    bool isCancellingInvocation;
+
+
+    private void Update()
+    {
+        CheckForCancelInvocation();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -22,6 +26,7 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         {
             return;
         }
+        isDraggin = true;
 
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         RaycastHit hit;
@@ -36,7 +41,7 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left)
+        if (eventData.button != PointerEventData.InputButton.Left || isCancellingInvocation)
         {
             return;
         }
@@ -53,17 +58,21 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
             SetGhostPositionWithMousePos(SnapToGrid(hitPoint));
         }
 
-        lastMousePosition = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left)
+        if (eventData.button != PointerEventData.InputButton.Left || isCancellingInvocation)
         {
+            isCancellingInvocation = false;
             return;
         }
 
-        // Aquí podrías hacer comprobaciones adicionales, como si el movimiento es válido, si se puede colocar en esa posición, etc.
+        isDraggin = false;
+
+        Instantiate(unitToSpawn.unitPrefab, ghostInstance.transform.position, unitToSpawn.unitPrefab.transform.rotation);
+        Destroy(ghostInstance);
+
     }
 
     private void SetGhostPositionWithMousePos(Vector3 position)
@@ -80,5 +89,20 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         float snappedX = Mathf.Round(position.x / tileSize) * tileSize;
         float snappedZ = Mathf.Round(position.z / tileSize) * tileSize;
         return new Vector3(snappedX, position.y, snappedZ);
+    }
+
+    private void CheckForCancelInvocation()
+    {
+        if (!isDraggin)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            isCancellingInvocation = true;
+            Destroy(ghostInstance);
+        }
+
     }
 }
