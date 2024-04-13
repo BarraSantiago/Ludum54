@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] UnitsDataSO unitToSpawn;
-    [SerializeField] float tileSize = 5f; // Tamaño de la tile
+    [SerializeField] float tileSize = 500f; // Tamaño de la tile
     [SerializeField] LayerMask rayMask;
     private float maxRayDist = Mathf.Infinity;
 
@@ -29,7 +29,6 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         if (Physics.Raycast(ray, out hit, maxRayDist, rayMask))
         {
             Vector3 hitPoint = hit.point;
-            // Ajustar la posición a la rejilla de tiles
             hitPoint = SnapToGrid(hitPoint);
             ghostInstance = Instantiate(unitToSpawn.ghostPrefab, hitPoint, unitToSpawn.ghostPrefab.transform.rotation);
         }
@@ -51,14 +50,11 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
             halfFloorHeight = new Vector3(0, offset / 2, 0);
 
             Vector3 hitPoint = hit.point;
-            // Ajustar la posición a la rejilla de tiles
-            hitPoint = SnapToGrid(hitPoint);
-            SetGhostPositionWithMousePos(hitPoint);
+            SetGhostPositionWithMousePos(SnapToGrid(hitPoint));
         }
 
         lastMousePosition = eventData.position;
     }
-
 
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -79,7 +75,6 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         }
     }
 
-    // Función para ajustar una posición a la rejilla de tiles
     private Vector3 SnapToGrid(Vector3 position)
     {
         float snappedX = Mathf.Round(position.x / tileSize) * tileSize;
