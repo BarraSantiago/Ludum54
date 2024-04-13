@@ -18,13 +18,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public void Start()
     {
         startButton.onClick.AddListener(StartMatch);
+        match.onEndGame += end;
+    }
+    private void end()
+    {
+        Debug.Log("End");
     }
 
     public void StartMatch()
     {
-        match.StartMatch(CheckVictory);
+        match.StartMatch();
     }
-
+    
     public void CheckVictory()
     {
         //ver quien tiene menos vida
