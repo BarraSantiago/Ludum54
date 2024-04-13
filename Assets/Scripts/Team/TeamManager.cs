@@ -1,36 +1,28 @@
 using UnityEngine;
 
-public class TeamManager : MonoBehaviour
-{
-    /// <summary>
-    /// Currency that lets you summon the unit.
-    /// </summary>
-    public float Energy { get; set; }
-
+public abstract class TeamManager : MonoBehaviour
+{    
     public Team team;
 
     /// <summary>
-    /// Energy gained each second
+    /// Currency that lets you summon the unit.
     /// </summary>
-    private float _energyPerSec = 1;
-    
+    public float Energy { get; protected set; } = 2;
     /// <summary>
     /// Max amount of energy that can be produced
     /// </summary>
-    public float MaxEnergy { get; private set; }
+    public float MaxEnergy { get; protected set; } = 10;
+    
+    /// <summary>
+    /// Energy gained each second
+    /// </summary>
+    protected float _energyPerSec = 1;
 
-    private void Awake()
-    {
-        MaxEnergy = 10;
-        _energyPerSec = 1;
-        Energy = 3;
-    }
-
-    private void Update()
+    protected void ChargeEnergy()
     {
         if (Energy < MaxEnergy)
         {
-            Energy +=_energyPerSec * Time.deltaTime;
+            Energy += _energyPerSec * Time.deltaTime;
         }
         else
         {

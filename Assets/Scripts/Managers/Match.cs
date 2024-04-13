@@ -2,11 +2,11 @@ using UnityEngine;
 [System.Serializable]
 public class Match
 {
-    [SerializeField] Player player1 = null;
+    [SerializeField] BlueTeamManager player1 = null;
 
-    [SerializeField] Player player2 = null;
+    [SerializeField] BlueTeamManager player2 = null;
 
-    [SerializeField] Player winner = null;
+    [SerializeField] BlueTeamManager winner = null;
 
     [SerializeField] float matchTime = 60f;
 
@@ -19,8 +19,8 @@ public class Match
     public void StartMatch()
     {
         matchTimer.Start(EndMatch, matchTime);
-        player1.OnMorir += EndMatch;
-        player2.OnMorir += EndMatch;
+        player1.OnLose += EndMatch;
+        player2.OnLose += EndMatch;
     }
     public virtual void EndMatch()
     {
@@ -38,12 +38,12 @@ public class Match
             return 0;
         return matchTimer.TimeLeft;
     }
-    public Player CheckPlayerWinner()
+    public BlueTeamManager CheckPlayerWinner()
     {
-        return player1.GetVida() > player2.GetVida() ? player1 : player2;
+        return player1.GetHp() > player2.GetHp() ? player1 : player2;
     }
-    public void WinnerPlayer(Player player)
+    public void WinnerPlayer(BlueTeamManager blueTeamManager)
     {
-        Debug.Log("WinnerPlayer: " + player.name);
+        Debug.Log("WinnerPlayer: " + blueTeamManager.name);
     }
 }
