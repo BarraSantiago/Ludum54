@@ -23,22 +23,17 @@ public class AttackableObject : MonoBehaviour, Attackable
     {
         this.team = team;
     }
-    private void Start()
+
+    protected virtual void Start()
     {
-        if (healthBarController)
-        {
-            healthBarController.SetAttackableObject(this);
-        }
+        healthBarController.SetAttackableObject(this);
     }
 
     public virtual void ReceiveDamage(float damage)
     {
         health -= damage;
 
-        if (healthBarController)
-        {
-            healthBarController.OnHealthChange();
-        }
+        healthBarController.OnHealthChange();
 
         if (health <= 0)
         {
