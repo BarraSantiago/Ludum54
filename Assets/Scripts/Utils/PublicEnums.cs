@@ -1,7 +1,8 @@
 ﻿public enum AttackType
 {
     Melee,
-    Range
+    Range,
+    Bomb
 }
 
 /// <summary>
