@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +5,8 @@ public class HealthBarController : MonoBehaviour
 {
     [SerializeField] Image healthBar;
     [SerializeField] float timeToTurnOffHealthBar = 5f; // Time in seconds to reset the timer
-  
-    AttackableObject attackableObject;
+
+    [SerializeField] AttackableObject attackableObject;
 
      float elapsedTime = 0f;
 

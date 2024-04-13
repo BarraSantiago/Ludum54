@@ -5,8 +5,8 @@ public class AttackableObject : MonoBehaviour, Attackable
     [SerializeField] HealthBarController healthBarController;
 
     private float maxHealth = 100;
-    private float health = 100;
-    private Team team = default;
+    [SerializeField] private float health = 100;
+    [SerializeField] private Team team = default;
 
     public float Health { get => health; }
     public float MaxHealth { get => maxHealth; }
@@ -23,7 +23,7 @@ public class AttackableObject : MonoBehaviour, Attackable
     {
         this.team = team;
     }
-    private void Start()
+    protected virtual void Start()
     {
         if (healthBarController)
         {
