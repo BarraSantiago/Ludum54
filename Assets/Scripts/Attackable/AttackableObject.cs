@@ -30,6 +30,7 @@ public class AttackableObject : MonoBehaviour, Attackable
             healthBarController.SetAttackableObject(this);
         }
     }
+
     public virtual void ReceiveDamage(float damage)
     {
         health -= damage;
