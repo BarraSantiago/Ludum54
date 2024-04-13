@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackableObject : MonoBehaviour, Attacklable
+public class AttackableObject : MonoBehaviour, Attackable
 {
     private float health = 0;
 
@@ -9,7 +9,7 @@ public class AttackableObject : MonoBehaviour, Attacklable
         health = maxHealth;
     }
 
-    public void ReceiveDamage(float damage)
+    public virtual void ReceiveDamage(float damage)
     {
         health -= damage;
 
@@ -19,8 +19,9 @@ public class AttackableObject : MonoBehaviour, Attacklable
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
+        gameObject.SetActive(false);
         Debug.Log("Dead");
     }
 }

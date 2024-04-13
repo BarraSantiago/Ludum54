@@ -1,4 +1,4 @@
-public interface Attacklable
+public interface Attackable
 {
     public void SetMaxHealth(float maxHealth);
     public void ReceiveDamage(float damage);
