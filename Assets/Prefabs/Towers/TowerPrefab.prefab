@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44abb486739ccc4fa2a0aeae3766c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarController: {fileID: 0}
+  healthBarController: {fileID: 2186051644059830639}
   maxHealth: 300
   model: {fileID: 0}
   team: 0
@@ -172,6 +172,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
+--- !u!114 &2186051644059830639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2564332902799321254, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
+  m_PrefabInstance: {fileID: 4449623858901377481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8797afe3addf98f4fb3dd2937fd10039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4750874672181949625 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8948162097836283248, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
