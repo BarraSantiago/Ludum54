@@ -22,6 +22,7 @@ public class TeamManager : MonoBehaviour
     private void Awake()
     {
         MaxEnergy = 10;
+        _energyPerSec = 1;
         Energy = 3;
     }
 
@@ -29,7 +30,7 @@ public class TeamManager : MonoBehaviour
     {
         if (Energy < MaxEnergy)
         {
-            Energy += _energyPerSec / Time.deltaTime;
+            Energy +=_energyPerSec * Time.deltaTime;
         }
         else
         {
