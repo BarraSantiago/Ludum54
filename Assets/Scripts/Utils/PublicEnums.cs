@@ -3,3 +3,9 @@
     SingleTarget,
     Splash,
 }
+
+public enum Teams
+{
+    TeamBlue,
+    TeamRed
+}
