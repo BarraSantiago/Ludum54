@@ -6,9 +6,9 @@ public class TowerController : AttackableObject
 {
     GameManager gm;
 
-    [SerializeField] float maxHealth;
+    [SerializeField] float towerMaxHealth;
     [SerializeField] Transform model;
-    [SerializeField] Team team;
+    [SerializeField] Team towerTeam;
 
     [SerializeField] float damage;
     [SerializeField] float attackSpeed;
@@ -19,14 +19,15 @@ public class TowerController : AttackableObject
     List<AttackableObject> targets;
     float counter;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         gm = GameManager.Get();
         targets = new List<AttackableObject>();
 
-
-        SetTeam(team);
-        SetMaxHealth(maxHealth);
+        SetTeam(towerTeam);
+        SetMaxHealth(towerMaxHealth);
     }
 
     public override void Die()
@@ -34,6 +35,7 @@ public class TowerController : AttackableObject
         (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
 
         //Animacion de destruccion del modelo
+        this.enabled = false;
         model.gameObject.SetActive(false);
     }
 
@@ -41,7 +43,7 @@ public class TowerController : AttackableObject
     {
         if (other.TryGetComponent(out AttackableObject target))
         {
-            if (target.Team != team)
+            if (target.Team != towerTeam)
             {
                 targets.Add(target);
             }
