@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ITarget 
 {
     public void ReceiveDamage(float damage);
-    public Transform GetTransform();
+    public bool isValid();
     public Team GetTeam();
+    public Transform GetTransform();
 }
