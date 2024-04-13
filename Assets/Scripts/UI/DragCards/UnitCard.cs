@@ -1,27 +1,89 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
+    #region EXPOSED_FIELDS
     [SerializeField] UnitsDataSO unitToSpawn;
-    [SerializeField] float tileSize; // Tamaño de la tile
+    [SerializeField] float tileSize; // Tamaï¿½o de la tile
     [SerializeField] LayerMask rayMask;
+
+    [Header("UI")]
+    [SerializeField] private Button btnBuy = null;
+    [SerializeField] private TextMeshProUGUI txtName = null;
+    [SerializeField] private TextMeshProUGUI txtCost = null;
+    [SerializeField] private Image imgCooldown = null;
+    [SerializeField] private TextMeshProUGUI txtCooldown = null;
+    #endregion
+
+    #region PRIVTAE_FIELDS
     private float maxRayDist = Mathf.Infinity;
-
     private GameObject ghostInstance;
+    private Vector3 halfFloorHeight;
+    private bool isDraggin;
+    private bool isCancellingInvocation;
 
-    Vector3 halfFloorHeight;
-    bool isDraggin;
-    bool isCancellingInvocation;
+    private float cooldown = 0;
+    private bool canBuy = true;
+    #endregion
 
+    #region UNITY_CALLS
+    private void Start()
+    {
+        txtCost.text = unitToSpawn.cost.ToString();
+        txtName.text = unitToSpawn.name;
+    }
 
     private void Update()
     {
         CheckForCancelInvocation();
+
+        if (!canBuy)
+        {
+            UpdateCooldown();
+        }
+    }
+    #endregion
+
+    #region PRIVATE_METHODS
+    private void UpdateCooldown()
+    {
+        cooldown -= Time.deltaTime;
+
+        if (cooldown <= 0)
+        {
+            ToggleCooldown(false);
+        }
+        else
+        {
+            txtCooldown.text = ((int)cooldown).ToString();
+            imgCooldown.fillAmount = 1 - (cooldown / UnitsDataSO.spawnCooldown);
+        }
     }
 
+    private void ToggleCooldown(bool status)
+    {
+        canBuy = !status;
+        imgCooldown.gameObject.SetActive(status);
+        btnBuy.interactable = !status;
+
+        if (status)
+        {            
+            cooldown = UnitsDataSO.spawnCooldown;            
+        }
+    }
+    #endregion
+
+    #region DRAG_BEHAVIOUR
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!canBuy)
+        {
+            return;
+        }
+
         if (eventData.button != PointerEventData.InputButton.Left)
         {
             return;
@@ -41,6 +103,11 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!canBuy)
+        {
+            return;
+        }
+
         if (eventData.button != PointerEventData.InputButton.Left || isCancellingInvocation)
         {
             return;
@@ -62,6 +129,11 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!canBuy)
+        {
+            return;
+        }
+
         if (eventData.button != PointerEventData.InputButton.Left || isCancellingInvocation)
         {
             isCancellingInvocation = false;
@@ -73,6 +145,7 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         Instantiate(unitToSpawn.unitPrefab, ghostInstance.transform.position, unitToSpawn.unitPrefab.transform.rotation);
         Destroy(ghostInstance);
 
+        ToggleCooldown(true);
     }
 
     private void SetGhostPositionWithMousePos(Vector3 position)
@@ -93,7 +166,7 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
 
     private void CheckForCancelInvocation()
     {
-        if (!isDraggin)
+        if (!isDraggin || canBuy)
         {
             return;
         }
@@ -105,4 +178,5 @@ public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDra
         }
 
     }
+    #endregion
 }

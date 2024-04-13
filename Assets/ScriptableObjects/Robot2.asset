@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12404e8db43f6b94cbcd3b5487a43ff6, type: 3}
-  m_Name: Robot1
+  m_Name: Robot2
   m_EditorClassIdentifier: 
-  unitsName: Robot1
-  cost: 1
+  unitsName: Robot2
+  cost: 10
   movementSpeed: 5
   maxHealth: 50
   damage: 50
@@ -21,7 +21,7 @@ MonoBehaviour:
   range: 5
   attackCooldown: 1
   attackType: 0
-  ghostPrefab: {fileID: 5751029880136242031, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
-  unitPrefab: {fileID: 121089003984463748, guid: cb5899273b189db4b836138fff2bdd74, type: 3}
+  ghostPrefab: {fileID: 8345342912071134394, guid: dc5bb534cb26b4a5db551d8789a625e5, type: 3}
+  unitPrefab: {fileID: 4541804504160819537, guid: 8ebabb273cf4c4ccb9d7be2ebaa52c8a, type: 3}
   invocationSound: {fileID: 0}
   attackSound: {fileID: 0}
