@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class DragCards : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] UnitsDataSO unitToSpawn;
-    [SerializeField] float tileSize = 500f; // Tamaño de la tile
+    [SerializeField] float tileSize; // Tamaño de la tile
     [SerializeField] LayerMask rayMask;
     private float maxRayDist = Mathf.Infinity;
 
