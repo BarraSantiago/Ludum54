@@ -225,6 +225,7 @@ public class BasicUnit : AttackableObject
                     }
                 }
                 gos.FindAll(x => x != null).ForEach(x => x.ReceiveDamage(unitData.damage));
+                Destroy(gameObject);
                 break;
             default:
                 break;

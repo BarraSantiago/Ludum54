@@ -20,7 +20,7 @@ MonoBehaviour:
   attackSpeed: 1
   range: 5
   attackCooldown: 1
-  attackType: 0
+  attackType: 2
   ghostPrefab: {fileID: 5751029880136242031, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: 02879a3bed7c23c4a9b81769f9b08c0b, type: 3}
   unitRedPrefab: {fileID: 121089003984463748, guid: 6e81305e0ccb08e4eb865b9ec79cf4eb, type: 3}
