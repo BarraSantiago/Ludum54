@@ -4896,6 +4896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885141661796913991}
   - component: {fileID: 2110995135237058304}
+  - component: {fileID: 8962052143468709510}
   m_Layer: 0
   m_Name: ReciveDamageParticles
   m_TagString: Untagged
@@ -4934,6 +4935,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 2
+--- !u!114 &8962052143468709510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415760863278376249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8e48589c083f143ad03ed0ce0a9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 1
 --- !u!1 &8814959327676102352
 GameObject:
   m_ObjectHideFlags: 0

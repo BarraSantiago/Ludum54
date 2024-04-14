@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6248487361316037966}
   - component: {fileID: 7852276118999612998}
   - component: {fileID: 119630911605456384}
+  - component: {fileID: -3798065410252557217}
   m_Layer: 0
   m_Name: RedCanonParticles
   m_TagString: Untagged
@@ -4886,3 +4887,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-3798065410252557217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927164497405887157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8e48589c083f143ad03ed0ce0a9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 1
