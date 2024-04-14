@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: towerTeam
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: basicProjectile
+      value: 
+      objectReference: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
     - target: {fileID: 2722572031601481514, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
