@@ -147,7 +147,7 @@ public class BasicUnit : AttackableObject
             target = closerEnemy;
         }
 
-        
+
         currentState = State.PursuingTarget;
 
         //Debug.Log("Find");
@@ -187,8 +187,6 @@ public class BasicUnit : AttackableObject
             attackCooldown = unitData.attackCooldown;
             Hit();
         }
-
-        //Debug.Log("Attack");
     }
 
     protected virtual void Hit()
@@ -200,7 +198,7 @@ public class BasicUnit : AttackableObject
         }
 
         GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
-      Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+        Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
         BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
         basicProjectile.SetTarget(target);
