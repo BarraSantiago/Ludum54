@@ -13,6 +13,7 @@ public class BasicUnit : AttackableObject
     }
 
     [SerializeField] Transform spawnProyectilePostion;
+    [SerializeField] GameObject spawnProyectileParticles;
     [SerializeField] GameObject projectile;
 
     #region PROTECTED_FIELDS
@@ -198,8 +199,8 @@ public class BasicUnit : AttackableObject
             audioSource.Play();
         }
 
-        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position,
-            spawnProyectilePostion.rotation);
+        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+      Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
         BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
         basicProjectile.SetTarget(target);

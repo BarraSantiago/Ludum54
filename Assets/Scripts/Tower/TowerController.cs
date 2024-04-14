@@ -8,6 +8,8 @@ public class TowerController : AttackableObject
 
     [SerializeField] float towerMaxHealth;
     [SerializeField] GameObject basicProjectile;
+    [SerializeField] GameObject spawnProjectileParticles;
+
     [SerializeField] Transform spawnProjectilePosition;
     [SerializeField] Transform model;
     [SerializeField] Team towerTeam;
@@ -27,6 +29,8 @@ public class TowerController : AttackableObject
 
         gm = GameManager.Get();
         targets = new List<AttackableObject>();
+
+        towerIsAlive = true;
 
         SetTeam(towerTeam);
         SetMaxHealth(towerMaxHealth);
@@ -69,6 +73,8 @@ public class TowerController : AttackableObject
             counter = 0;
 
             GameObject projectile = Instantiate(basicProjectile, spawnProjectilePosition.transform.position, spawnProjectilePosition.transform.rotation);
+            Instantiate(spawnProjectileParticles, spawnProjectilePosition.transform.position, spawnProjectilePosition.transform.rotation);
+
             BasicProjectile proj = projectile.GetComponent<BasicProjectile>();
 
             proj.Initialize(targets[0], damage);

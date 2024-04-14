@@ -141,6 +141,10 @@ PrefabInstance:
       propertyPath: basicProjectile
       value: 
       objectReference: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: spawnProjectileParticles
+      value: 
+      objectReference: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
     - target: {fileID: 3207898874220214297, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_Name
       value: NormalTowerRed
