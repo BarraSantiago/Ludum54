@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,6 +17,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     [SerializeField] private TextMeshProUGUI txtName = null;
     [SerializeField] private TextMeshProUGUI txtCost = null;
     [SerializeField] private Image imgCooldown = null;
+    [SerializeField] private Image imgEnabled = null;
     [SerializeField] private TextMeshProUGUI txtCooldown = null;
     #endregion
 
@@ -27,7 +29,12 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     private bool isCancellingInvocation;
 
     private float cooldown = 0;
-    private bool canBuy = true;
+    private bool canBuy = false;
+    private bool cooldownActive = false;
+    #endregion
+
+    #region ACTIONS
+    public Action<int> onBuyItem = null;
     #endregion
 
     #region UNITY_CALLS
@@ -41,9 +48,34 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     {
         CheckForCancelInvocation();
 
-        if (!canBuy)
+        if (cooldownActive)
         {
             UpdateCooldown();
+        }
+    }
+    #endregion
+
+    #region PUBLIC_METHODS
+    public void UpdateStateByEnergyLeft(int energyLeft)
+    {
+        canBuy = unitToSpawn.cost <= energyLeft;
+
+        if (canBuy)
+        {
+            imgEnabled.gameObject.SetActive(false);
+
+            if (!cooldownActive)
+            {
+                btnBuy.interactable = true;
+            }
+        }
+        else
+        {
+            if (!cooldownActive)
+            {
+                imgEnabled.gameObject.SetActive(true);
+                btnBuy.interactable = false;
+            }
         }
     }
     #endregion
@@ -60,19 +92,29 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
         else
         {
             txtCooldown.text = ((int)cooldown).ToString();
-            imgCooldown.fillAmount = 1 - (cooldown / UnitsDataSO.spawnCooldown);
+            imgCooldown.fillAmount = (cooldown / UnitsDataSO.spawnCooldown);
         }
     }
 
     private void ToggleCooldown(bool status)
     {
-        canBuy = !status;
+        cooldownActive = status;
+
         imgCooldown.gameObject.SetActive(status);
+
         btnBuy.interactable = !status;
 
         if (status)
-        {            
+        {
             cooldown = UnitsDataSO.spawnCooldown;            
+        }
+        else
+        {
+            if (!canBuy)
+            {
+                imgEnabled.gameObject.SetActive(true);
+                btnBuy.interactable = false;
+            }
         }
     }
     #endregion
@@ -80,7 +122,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     #region DRAG_BEHAVIOUR
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!canBuy)
+        if (cooldownActive || !canBuy)
         {
             return;
         }
@@ -104,7 +146,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!canBuy)
+        if (cooldownActive || !canBuy)
         {
             return;
         }
@@ -130,7 +172,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!canBuy)
+        if (cooldownActive || !canBuy)
         {
             return;
         }
@@ -152,6 +194,8 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
             unit.GetComponent<BasicUnit>().SetUnitData(unitToSpawn, Team.BlueTeam);
 
             ToggleCooldown(true);
+
+            onBuyItem.Invoke(unitToSpawn.cost);
         }       
     }
 
@@ -173,7 +217,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     private void CheckForCancelInvocation()
     {
-        if (!isDraggin || canBuy)
+        if (!isDraggin)
         {
             return;
         }
