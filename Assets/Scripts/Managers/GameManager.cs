@@ -13,12 +13,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [SerializeField] TextMeshProUGUI timerText = null;
     [SerializeField] Button startButton = null;
 
-
-
     public void Start()
     {
-        //if (startButton != null)
-        //    startButton.onClick.AddListener(StartMatch);
         StartMatch();
         match.onEndGame += end;
     }

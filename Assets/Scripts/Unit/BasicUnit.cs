@@ -197,12 +197,40 @@ public class BasicUnit : AttackableObject
             audioSource.Play();
         }
 
-        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
-        Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
-        BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
+        switch (unitData.attackType)
+        {
+            case AttackType.Melee:
+                target.ReceiveDamage(unitData.damage);
+                break;
+            case AttackType.Range:
+                GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+                Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+                BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
-        basicProjectile.SetTarget(target);
-        basicProjectile.SetDamage(unitData.damage);
+                basicProjectile.SetTarget(target);
+                basicProjectile.SetDamage(unitData.damage);
+                break;
+            case AttackType.Bomb:
+                Collider[] colliders = Physics.OverlapSphere(transform.position, unitData.range);
+                List<BasicUnit> gos = new List<BasicUnit>();
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    BasicUnit unit = colliders[i].transform.gameObject.GetComponent<BasicUnit>();
+                    if (unit != null)
+                    {
+                        if (unit.Team != this.Team)
+                        {
+                            gos.Add(unit);
+                        }
+                    }
+                }
+                gos.FindAll(x => x != null).ForEach(x => x.ReceiveDamage(unitData.damage));
+                break;
+            default:
+                break;
+        }
+
+        
     }
 
     #endregion
