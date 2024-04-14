@@ -57,6 +57,17 @@ public class TowerController : AttackableObject
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out AttackableObject target))
+        {
+            if (targets.Contains(target))
+            {
+                targets.Remove(target);
+            }
+        }
+    }
+
     private void Update()
     {
         ClearTargetsList();
