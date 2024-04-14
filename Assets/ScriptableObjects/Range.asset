@@ -21,9 +21,9 @@ MonoBehaviour:
   range: 5
   attackCooldown: 0.5
   attackType: 1
-  ghostPrefab: {fileID: 5751029880136242031, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
+  ghostPrefab: {fileID: 8825820133464266326, guid: d9105b702f2a640858ce56de31fbda3c, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: ca0ca038fb45cfb4fa6c982aa6c2c6ad, type: 3}
-  unitRedPrefab: {fileID: 121089003984463748, guid: 4298c209ff74b7f4cbaf395720ce27db, type: 3}
+  unitRedPrefab: {fileID: 121089003984463748, guid: ea3e54c5b965a4b1a8af99e2b13278a7, type: 3}
   invocationSound: {fileID: 8300000, guid: 19abd3ae1a1c97249a803d6798394c0c, type: 3}
   attackSound: {fileID: 8300000, guid: df0927763b003e24790c89099d4336c5, type: 3}
   deathSound: {fileID: 8300000, guid: d085b646194103c499a0029494066654, type: 3}
