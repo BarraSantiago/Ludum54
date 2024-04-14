@@ -7,6 +7,9 @@ public class BasicUnit : AttackableObject
 {
     public enum State { FindingTarget, PursuingTarget, Attacking }
 
+    [SerializeField] Transform spawnProyectilePostion;
+    [SerializeField] GameObject projectile;
+
     #region PROTECTED_FIELDS
     public UnitsDataSO unitData;
     protected AudioSource audioSource;
@@ -152,7 +155,11 @@ public class BasicUnit : AttackableObject
 
     protected virtual void Hit()
     {
-        target.ReceiveDamage(unitData.damage);
+        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+        BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
+
+        basicProjectile.SetTarget(target);
+        basicProjectile.SetDamage(unitData.damage);
     }
     #endregion
 

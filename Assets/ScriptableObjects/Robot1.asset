@@ -15,8 +15,8 @@ MonoBehaviour:
   unitsName: Robot1
   cost: 5
   movementSpeed: 5
-  maxHealth: 50
-  damage: 50
+  maxHealth: 100
+  damage: 10
   attackSpeed: 1
   range: 5
   attackCooldown: 1
