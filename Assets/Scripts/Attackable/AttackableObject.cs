@@ -23,7 +23,6 @@ public class AttackableObject : MonoBehaviour, Attackable
     {
         this.team = team;
     }
-
     protected virtual void Start()
     {
         if (healthBarController)
@@ -50,5 +49,6 @@ public class AttackableObject : MonoBehaviour, Attackable
     public virtual void Die()
     {
         gameObject.SetActive(false);
+        Debug.Log("Dead");
     }
 }

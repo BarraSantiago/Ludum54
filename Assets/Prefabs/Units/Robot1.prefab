@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8129640173133786329}
   - component: {fileID: 2848947242172811946}
   - component: {fileID: 2102116438080531554}
-  - component: {fileID: 6620573079362806869}
-  - component: {fileID: 7085212148269182960}
   m_Layer: 0
   m_Name: Robot1
   m_TagString: Untagged
@@ -150,8 +148,7 @@ MonoBehaviour:
   healthBarController: {fileID: 844089100130915476}
   health: 100
   team: 0
-  spawnProyectilePosition: {fileID: 7971847987356798724}
-  spawnProyectileParticles: {fileID: 2959025743259202272, guid: 780b37e46544ddb43b000405d74879f1, type: 3}
+  spawnProyectilePostion: {fileID: 7971847987356798724}
   projectile: {fileID: 1331813788855671721, guid: 5de8905d4d1a6fb429f9dc3f4875a02d, type: 3}
   unitData: {fileID: 11400000, guid: 3856c7695e1eb004793c3d8cf02fcb22, type: 2}
 --- !u!195 &2102116438080531554
@@ -176,54 +173,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &6620573079362806869
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121089003984463748}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.016709, z: 1.8174696}
-  m_Center: {x: 0, y: 0.50835454, z: 0.01875782}
---- !u!54 &7085212148269182960
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121089003984463748}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &4673639883717599824
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,11 +384,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9060109610230508019, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
-    - {fileID: 6032914938350941774, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
-    - {fileID: 6162162179876959576, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
-    - {fileID: 1752813640863921666, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

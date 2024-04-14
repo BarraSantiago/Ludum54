@@ -12,8 +12,7 @@ public class BasicUnit : AttackableObject
         Attacking
     }
 
-    [SerializeField] Transform spawnProyectilePosition;
-    [SerializeField] GameObject spawnProyectileParticles;
+    [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject projectile;
 
     #region PROTECTED_FIELDS
@@ -126,6 +125,8 @@ public class BasicUnit : AttackableObject
 
         agent.SetDestination(target.transform.position);
         currentState = State.PursuingTarget;
+
+        Debug.Log("Find");
     }
 
     protected virtual void PursueTarget()
@@ -139,6 +140,8 @@ public class BasicUnit : AttackableObject
         {
             agent.isStopped = false;
         }
+
+        Debug.Log("Pursue");
     }
 
     protected virtual void Attack()
@@ -161,6 +164,7 @@ public class BasicUnit : AttackableObject
             Hit();
         }
 
+        Debug.Log("Attack");
     }
 
     protected virtual void Hit()
@@ -171,9 +175,8 @@ public class BasicUnit : AttackableObject
             audioSource.Play();
         }
 
-        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePosition.position, spawnProyectilePosition.rotation);
-        Instantiate(spawnProyectileParticles, spawnProyectilePosition.position, spawnProyectilePosition.rotation);
-
+        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position,
+            spawnProyectilePostion.rotation);
         BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
         basicProjectile.SetTarget(target);

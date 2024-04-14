@@ -7,13 +7,9 @@ public class TowerController : AttackableObject
     GameManager gm;
 
     [SerializeField] float towerMaxHealth;
-
     [SerializeField] GameObject basicProjectile;
-    [SerializeField] GameObject spawnProjectileParticles;
-
     [SerializeField] Transform spawnProjectilePosition;
     [SerializeField] Transform model;
-
     [SerializeField] Team towerTeam;
 
     [SerializeField] float damage;
@@ -32,8 +28,6 @@ public class TowerController : AttackableObject
         gm = GameManager.Get();
         targets = new List<AttackableObject>();
 
-        towerIsAlive = true;
-
         SetTeam(towerTeam);
         SetMaxHealth(towerMaxHealth);
     }
@@ -42,11 +36,9 @@ public class TowerController : AttackableObject
     {
         (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
 
-        towerIsAlive = false;
-
         //Animacion de destruccion del modelo
-
-        Destroy(gameObject); // En caso de que se necesite que el objeto este persista en la scena se puede destruir este componente Destroy(this);
+        this.enabled = false;
+        model.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,9 +68,8 @@ public class TowerController : AttackableObject
             counter = 0;
 
             GameObject projectile = Instantiate(basicProjectile, spawnProjectilePosition.transform.position, spawnProjectilePosition.transform.rotation);
-            Instantiate(spawnProjectileParticles, spawnProjectilePosition.transform.position, spawnProjectilePosition.transform.rotation);
-
             BasicProjectile proj = projectile.GetComponent<BasicProjectile>();
+
             proj.Initialize(targets[0], damage);
         }
     }

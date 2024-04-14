@@ -135,7 +135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: towerMaxHealth
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: basicProjectile
