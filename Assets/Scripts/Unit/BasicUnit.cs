@@ -19,7 +19,7 @@ public class BasicUnit : AttackableObject
 
     public UnitsDataSO unitData;
     protected AudioSource audioSource;
-    protected AttackableObject target;
+    [SerializeField] protected AttackableObject target;
 
     #endregion
 
@@ -55,7 +55,9 @@ public class BasicUnit : AttackableObject
             Debug.Log("No more enemies");
             return;
         }
-
+        if (target)
+            agent.SetDestination(target.transform.position);
+        recalculateTarget();
         UpdateState();
     }
 
@@ -84,7 +86,28 @@ public class BasicUnit : AttackableObject
     #endregion
 
     #region PROTECTED_METHODS
+    private void recalculateTarget()
+    {
+        AttackableObject[] allEntities = FindObjectsOfType<AttackableObject>(false);
+        for (int i = 0; i < allEntities.Length; i++)
+        {
+            if (allEntities[i].Team != Team && allEntities[i] != this)
+            {
+                if (target == null)
+                {
+                    target = allEntities[i];
+                }
+                else
+                {
+                    if (Vector3.Distance(allEntities[i].transform.position, transform.position) < Vector3.Distance(target.transform.position, transform.position))
+                    {
+                        target = allEntities[i];
+                    }
+                }
+            }
+        }
 
+    }
     protected virtual void FindTarget()
     {
         if (!TargetIsValid())
@@ -123,7 +146,7 @@ public class BasicUnit : AttackableObject
             target = closerEnemy;
         }
 
-        agent.SetDestination(target.transform.position);
+        
         currentState = State.PursuingTarget;
 
         //Debug.Log("Find");
