@@ -22,6 +22,7 @@ public class UnitsDataSO : ScriptableObject
     
     public AudioClip invocationSound;
     public AudioClip attackSound;
+    public AudioClip deathSound;
 
     //Se puede agregar particulas de Ataque/Invocacion/Muerte
 

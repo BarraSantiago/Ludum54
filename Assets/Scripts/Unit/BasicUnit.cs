@@ -5,26 +5,36 @@ using UnityEngine.AI;
 [RequireComponent(typeof(AudioSource))]
 public class BasicUnit : AttackableObject
 {
-    public enum State { FindingTarget, PursuingTarget, Attacking }
+    public enum State
+    {
+        FindingTarget,
+        PursuingTarget,
+        Attacking
+    }
 
     [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject projectile;
 
     #region PROTECTED_FIELDS
+
     public UnitsDataSO unitData;
     protected AudioSource audioSource;
     protected AttackableObject target;
+
     #endregion
 
     #region PRIVATE_FIELDS
+
     private NavMeshAgent agent = null;
 
     private State currentState = default;
     private float attackCooldown = 0;
     private bool noMoreEnemies = false; // when the game ends
+
     #endregion
 
     #region UNITY_CALLS
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -48,9 +58,11 @@ public class BasicUnit : AttackableObject
 
         UpdateState();
     }
+
     #endregion
 
     #region INITIALIZATION
+
     public void SetUnitData(UnitsDataSO data, Team team)
     {
         unitData = data;
@@ -68,9 +80,11 @@ public class BasicUnit : AttackableObject
             audioSource.Play();
         }
     }
+
     #endregion
 
     #region PROTECTED_METHODS
+
     protected virtual void FindTarget()
     {
         if (!TargetIsValid())
@@ -155,15 +169,24 @@ public class BasicUnit : AttackableObject
 
     protected virtual void Hit()
     {
-        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+        if (unitData.attackSound)
+        {
+            audioSource.clip = unitData.attackSound;
+            audioSource.Play();
+        }
+
+        GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position,
+            spawnProyectilePostion.rotation);
         BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
         basicProjectile.SetTarget(target);
         basicProjectile.SetDamage(unitData.damage);
     }
+
     #endregion
 
     #region PRIVATE_METHODS
+
     private void UpdateState()
     {
         switch (currentState)
@@ -196,5 +219,17 @@ public class BasicUnit : AttackableObject
     {
         return target != null && target.gameObject.activeInHierarchy;
     }
+
+    public override void Die()
+    {
+        if (unitData.deathSound)
+        {
+            audioSource.clip = unitData.deathSound;
+            audioSource.Play();
+        }
+
+        base.Die();
+    }
+
     #endregion
 }

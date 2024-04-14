@@ -93,7 +93,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   healthBarController: {fileID: 844089100130915476}
   health: 100
   team: 0
+  spawnProyectilePostion: {fileID: 0}
+  projectile: {fileID: 0}
   unitData: {fileID: 11400000, guid: 808b109b6ba93534c8e3a157dbe571d2, type: 2}
 --- !u!195 &2102116438080531554
 NavMeshAgent:
