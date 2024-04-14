@@ -22,8 +22,8 @@ MonoBehaviour:
   attackCooldown: 1
   attackType: 0
   ghostPrefab: {fileID: 5751029880136242031, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
-  unitBluePrefab: {fileID: 121089003984463748, guid: fa45c801908a395429f046413206e489, type: 3}
-  unitRedPrefab: {fileID: 121089003984463748, guid: ff01fabc7717f59488d763296564c69d, type: 3}
-  invocationSound: {fileID: 0}
-  attackSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  unitBluePrefab: {fileID: 9191546062872090985, guid: f7c791096820ed14db361efccf84d00d, type: 3}
+  unitRedPrefab: {fileID: 7765986052486809052, guid: d55e36b1e11098d4c8d10f49590d6967, type: 3}
+  invocationSound: {fileID: 8300000, guid: 19abd3ae1a1c97249a803d6798394c0c, type: 3}
+  attackSound: {fileID: 8300000, guid: df0927763b003e24790c89099d4336c5, type: 3}
+  deathSound: {fileID: 8300000, guid: d085b646194103c499a0029494066654, type: 3}
