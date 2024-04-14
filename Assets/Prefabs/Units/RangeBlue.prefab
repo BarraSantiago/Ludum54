@@ -35,6 +35,7 @@ Transform:
   - {fileID: 1710831247910221796}
   - {fileID: 6057020050358102338}
   - {fileID: 590555828831695252}
+  - {fileID: 2460909735586691317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8129640173133786329
@@ -148,9 +149,9 @@ MonoBehaviour:
   healthBarController: {fileID: 844089100130915476}
   health: 100
   team: 0
-  spawnProyectilePostion: {fileID: 0}
-  spawnProyectileParticles: {fileID: 0}
-  projectile: {fileID: 0}
+  spawnProyectilePostion: {fileID: 2460909735586691317}
+  spawnProyectileParticles: {fileID: 8871264028486950255, guid: cbdce6da1b6c2e246b31c46f8a4dc60a, type: 3}
+  projectile: {fileID: 1331813788855671721, guid: 5de8905d4d1a6fb429f9dc3f4875a02d, type: 3}
   unitData: {fileID: 11400000, guid: bc551d8f94dd6d14fa79fd917f72957e, type: 2}
   target: {fileID: 0}
 --- !u!195 &2102116438080531554
@@ -313,6 +314,37 @@ Transform:
   - {fileID: 9107580481119727714}
   - {fileID: 6942878341963522381}
   - {fileID: 8310476026015498051}
+  m_Father: {fileID: 8606837008501888664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1322608608811801372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2460909735586691317}
+  m_Layer: 0
+  m_Name: SpawnProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2460909735586691317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322608608811801372}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.018, y: 0.808, z: 0.394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 8606837008501888664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608877324202771025
