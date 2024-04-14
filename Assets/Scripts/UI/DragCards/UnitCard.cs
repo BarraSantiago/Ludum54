@@ -14,7 +14,6 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     [Header("UI")]
     [SerializeField] private Button btnBuy = null;
-    [SerializeField] private TextMeshProUGUI txtName = null;
     [SerializeField] private TextMeshProUGUI txtCost = null;
     [SerializeField] private Image imgCooldown = null;
     [SerializeField] private Image imgEnabled = null;
@@ -41,7 +40,6 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
     private void Start()
     {
         txtCost.text = unitToSpawn.cost.ToString();
-        txtName.text = unitToSpawn.name;
     }
 
     private void Update()
