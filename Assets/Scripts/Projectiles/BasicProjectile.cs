@@ -6,10 +6,10 @@ public class BasicProjectile : MonoBehaviour
 {
     [SerializeField] GameObject impactParticles;
     AttackableObject target;
-    float damage = 0;
    [SerializeField] float speed = 5f;
-
-    public BasicProjectile(AttackableObject attackableObject, float Damage)
+    float damage = 0;
+    float range = 1;
+    public void Initialize(AttackableObject attackableObject, float Damage)
     {
         target = attackableObject;
         damage = Damage;
@@ -18,7 +18,6 @@ public class BasicProjectile : MonoBehaviour
     public void SetTarget(AttackableObject attackableObject)
     {
         target = attackableObject;
-        Debug.Log(attackableObject);
     }
 
     public void SetDamage(float damage)
@@ -32,23 +31,18 @@ public class BasicProjectile : MonoBehaviour
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
 
-            transform.Translate(direction * speed * Time.deltaTime);
+            transform.position += direction * speed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, target.transform.position) < range)
+            {
+                Attack();
+                Instantiate(impactParticles, transform.position, transform.rotation);
+            }
         }
         else
         {
-            Destroy(this);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out AttackableObject attackableObject))
-        {
-            if (attackableObject == target)
-            {
-                Instantiate(impactParticles, transform.position, transform.rotation);
-                Attack();
-            }
+            // Si el objetivo ya no existe, destruye el proyectil
+            Destroy(gameObject);
         }
     }
 
@@ -56,6 +50,6 @@ public class BasicProjectile : MonoBehaviour
     {
         target.ReceiveDamage(damage);
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
