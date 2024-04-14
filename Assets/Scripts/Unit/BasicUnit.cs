@@ -12,6 +12,7 @@ public class BasicUnit : AttackableObject
         Attacking
     }
 
+    AnimationStateController animationStateController;
     [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject spawnProyectileParticles;
     [SerializeField] GameObject projectile;
@@ -40,6 +41,7 @@ public class BasicUnit : AttackableObject
     {
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
+        animationStateController = GetComponent<AnimationStateController>();
     }
 
     protected override void Start()
@@ -173,11 +175,16 @@ public class BasicUnit : AttackableObject
         if (!TargetIsValid())
         {
             currentState = State.FindingTarget;
+
+            animationStateController.SetAttackAnimation(false);
+            animationStateController.SetMoveAnimation(true);
             return;
         }
 
         if (!TargetIsClose())
         {
+            animationStateController.SetAttackAnimation(false);
+            animationStateController.SetMoveAnimation(true);
             currentState = State.PursuingTarget;
             return;
         }
@@ -185,12 +192,14 @@ public class BasicUnit : AttackableObject
         if (attackCooldown <= 0)
         {
             attackCooldown = unitData.attackCooldown;
+            animationStateController.SetAttackAnimation(true);
             Hit();
         }
     }
 
     protected virtual void Hit()
     {
+
         if (unitData.attackSound)
         {
             audioSource.clip = unitData.attackSound;
@@ -231,7 +240,7 @@ public class BasicUnit : AttackableObject
                 break;
         }
 
-        
+
     }
 
     #endregion
@@ -278,6 +287,8 @@ public class BasicUnit : AttackableObject
             audioSource.clip = unitData.deathSound;
             audioSource.Play();
         }
+
+        animationStateController.SetDieAnimation(true);
 
         base.Die();
     }
