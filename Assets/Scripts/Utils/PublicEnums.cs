@@ -13,3 +13,9 @@ public enum Team
     BlueTeam,
     RedTeam
 }
+
+public enum TypeOfTower
+{
+    UpTower,
+    DownTower
+}

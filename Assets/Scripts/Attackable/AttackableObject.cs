@@ -7,6 +7,7 @@ public class AttackableObject : MonoBehaviour, Attackable
     private float maxHealth = 100;
     [SerializeField] private float health = 100;
     [SerializeField] private Team team = default;
+    public System.Action OnDie;
 
     public float Health { get => health; }
     public float MaxHealth { get => maxHealth; }
@@ -49,6 +50,7 @@ public class AttackableObject : MonoBehaviour, Attackable
     public virtual void Die()
     {
         gameObject.SetActive(false);
+        OnDie?.Invoke();
         Debug.Log("Dead");
     }
 }

@@ -126,7 +126,7 @@ public class BasicUnit : AttackableObject
         agent.SetDestination(target.transform.position);
         currentState = State.PursuingTarget;
 
-        Debug.Log("Find");
+        //Debug.Log("Find");
     }
 
     protected virtual void PursueTarget()
@@ -141,7 +141,7 @@ public class BasicUnit : AttackableObject
             agent.isStopped = false;
         }
 
-        Debug.Log("Pursue");
+        //Debug.Log("Pursue");
     }
 
     protected virtual void Attack()
@@ -164,7 +164,7 @@ public class BasicUnit : AttackableObject
             Hit();
         }
 
-        Debug.Log("Attack");
+        //Debug.Log("Attack");
     }
 
     protected virtual void Hit()

@@ -1,8 +1,21 @@
+using System.Linq;
 using UnityEngine;
 
 public abstract class TeamManager : MonoBehaviour
 {    
     public Team team;
+
+    public TowerController mainTower;
+
+    public TowerController[] towers;
+
+    public float GetHp()
+    {
+        float totalHeal = 0;
+        totalHeal += mainTower.Health;
+        totalHeal += towers.Sum(tower => tower.Health);
+        return totalHeal;
+    }
 
     /// <summary>
     /// Currency that lets you summon the unit.

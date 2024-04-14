@@ -22,6 +22,6 @@ MonoBehaviour:
   attackCooldown: 1
   attackType: 0
   ghostPrefab: {fileID: 0}
-  unitPrefab: {fileID: 0}
+  unitPrefab: {fileID: 121089003984463748, guid: 02879a3bed7c23c4a9b81769f9b08c0b, type: 3}
   invocationSound: {fileID: 0}
   attackSound: {fileID: 0}
