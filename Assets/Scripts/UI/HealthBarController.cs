@@ -8,11 +8,14 @@ public class HealthBarController : MonoBehaviour
 
     [SerializeField] AttackableObject attackableObject;
 
+    Quaternion cameraRotation;
      float elapsedTime = 0f;
 
 
     private void Start()
     {
+        cameraRotation = Camera.main.transform.rotation;
+
         gameObject.SetActive(false);
     }
 
@@ -33,6 +36,8 @@ public class HealthBarController : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            transform.rotation = cameraRotation;
+
             elapsedTime += Time.deltaTime;
 
             if (elapsedTime >= timeToTurnOffHealthBar)
