@@ -62,7 +62,7 @@ public class RedTeamManager : TeamManager
 
         Energy -= units[randUnit].cost;
         
-        GameObject unit = Instantiate(units[randUnit].unitPrefab);
+        GameObject unit = Instantiate(units[randUnit].unitRedPrefab);
         
         // TODO change the unit's team to red team
         unit.GetComponent<BasicUnit>().SetUnitData(units[randUnit], team);

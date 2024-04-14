@@ -18,7 +18,8 @@ public class UnitsDataSO : ScriptableObject
     public AttackType attackType;
 
     public GameObject ghostPrefab;
-    public GameObject unitPrefab;
+    public GameObject unitBluePrefab;
+    public GameObject unitRedPrefab;
     
     public AudioClip invocationSound;
     public AudioClip attackSound;
