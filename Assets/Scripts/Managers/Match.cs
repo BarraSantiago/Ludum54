@@ -4,9 +4,7 @@ public class Match
 {
     [SerializeField] BlueTeamManager player1 = null;
 
-    [SerializeField] BlueTeamManager player2 = null;
-
-    [SerializeField] BlueTeamManager winner = null;
+    [SerializeField] RedTeamManager player_bot = null;
 
     [SerializeField] float matchTime = 60f;
 
@@ -20,13 +18,23 @@ public class Match
     {
         matchTimer.Start(EndMatch, matchTime);
         player1.OnLose += EndMatch;
-        player2.OnLose += EndMatch;
+        player1.mainTower.OnDie += EndMatch;
+        player_bot.mainTower.OnDie += EndMatch;
+        //player_bot.OnLose += EndMatch;
     }
     public virtual void EndMatch()
     {
-        winner = CheckPlayerWinner();
+        bool winner = CheckPlayerWinner();
         matchEnded = true;
         onEndGame?.Invoke();
+        if (winner)
+        {
+            WinnerPlayer();
+        }
+        else
+        {
+            Debug.Log("Player lose");
+        }
     }
     public void Update()
     {
@@ -38,12 +46,12 @@ public class Match
             return 0;
         return matchTimer.TimeLeft;
     }
-    public BlueTeamManager CheckPlayerWinner()
+    public bool CheckPlayerWinner()
     {
-        return player1.GetHp() > player2.GetHp() ? player1 : player2;
+        return player1.GetHp() > player_bot. GetHp() ? true : false;
     }
-    public void WinnerPlayer(BlueTeamManager blueTeamManager)
+    public void WinnerPlayer()
     {
-        Debug.Log("WinnerPlayer: " + blueTeamManager.name);
+        Debug.Log("Player Winn");
     }
 }

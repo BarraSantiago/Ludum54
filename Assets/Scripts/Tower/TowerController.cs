@@ -39,6 +39,7 @@ public class TowerController : AttackableObject
         //Animacion de destruccion del modelo
         this.enabled = false;
         model.gameObject.SetActive(false);
+        OnDie?.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)

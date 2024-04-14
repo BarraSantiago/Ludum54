@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void Start()
     {
-        if (startButton != null)
-            startButton.onClick.AddListener(StartMatch);
+        //if (startButton != null)
+        //    startButton.onClick.AddListener(StartMatch);
+        StartMatch();
         match.onEndGame += end;
     }
     private void end()

@@ -38,9 +38,4 @@ public class BlueTeamManager : TeamManager
             unitCards[i].UpdateStateByEnergyLeft((int)Energy);
         }
     }
-    
-    public float GetHp()
-    {
-        return 1;
-    }
 }
