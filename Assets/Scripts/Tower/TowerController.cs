@@ -7,6 +7,8 @@ public class TowerController : AttackableObject
     GameManager gm;
 
     [SerializeField] float towerMaxHealth;
+    [SerializeField] GameObject basicProjectile;
+    [SerializeField] Transform spawnProjectilePosition;
     [SerializeField] Transform model;
     [SerializeField] Team towerTeam;
 
@@ -64,13 +66,11 @@ public class TowerController : AttackableObject
         if (counter >= attackSpeed)
         {
             counter = 0;
-           
-            //Aca se tiene que instanciar un proyectil que vaya hacia el targets[0] y el proyectil haga el ReciveDamage;
 
-            if (targets[0].gameObject.activeInHierarchy) 
-            {
-                targets[0].ReceiveDamage(damage);
-            }
+            GameObject projectile = Instantiate(basicProjectile, spawnProjectilePosition.transform.position, spawnProjectilePosition.transform.rotation);
+            BasicProjectile proj = projectile.GetComponent<BasicProjectile>();
+
+            proj.Initialize(targets[0], damage);
         }
     }
 
