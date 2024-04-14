@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void Start()
     {
-        startButton.onClick.AddListener(StartMatch);
+        if (startButton != null)
+            startButton.onClick.AddListener(StartMatch);
         match.onEndGame += end;
     }
     private void end()
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public void Update()
     {
         match.Update();
+        if (timerText)
         timerText.text = match.GetTimeLeft().ToString("00");
     }
 }
