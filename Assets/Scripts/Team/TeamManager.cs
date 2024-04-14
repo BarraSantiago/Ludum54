@@ -12,8 +12,8 @@ public abstract class TeamManager : MonoBehaviour
     public float GetHp()
     {
         float totalHeal = 0;
-        totalHeal += mainTower.Health;
-        totalHeal += towers.Sum(tower => tower.Health);
+        totalHeal += mainTower!= null ? mainTower.Health : 0;
+        totalHeal += towers.Sum(tower => tower!=null ? tower.Health : 0);
         return totalHeal;
     }
 
