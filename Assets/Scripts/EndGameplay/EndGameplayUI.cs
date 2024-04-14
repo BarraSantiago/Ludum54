@@ -8,6 +8,7 @@ public class EndGameplayUI : MonoBehaviour
     [SerializeField] private GameObject holder = null;
     [SerializeField] private Button retryBtn = null;
     [SerializeField] private Button menuBtn = null;
+    [SerializeField] private Button exitBtn = null;
 
     [Header("Win Configuration")]
     [SerializeField] private GameObject winTextGO = null;
@@ -19,6 +20,13 @@ public class EndGameplayUI : MonoBehaviour
     {
         retryBtn.onClick.AddListener(RetryGame);
         menuBtn.onClick.AddListener(BackToMenu);
+        exitBtn.onClick.AddListener(ExitGame);
+        Match.onGameOutcome += ToggleUI;
+    }
+
+    private void OnDestroy()
+    {
+        Match.onGameOutcome -= ToggleUI;
     }
 
     public void ToggleUI(bool win)
@@ -45,5 +53,10 @@ public class EndGameplayUI : MonoBehaviour
     private void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 }
