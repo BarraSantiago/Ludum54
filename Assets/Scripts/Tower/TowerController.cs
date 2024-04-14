@@ -40,10 +40,11 @@ public class TowerController : AttackableObject
     {
         (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
 
-        //Animacion de destruccion del modelo
-        this.enabled = false;
-        model.gameObject.SetActive(false);
         OnDie?.Invoke();
+
+        //Animacion de destruccion del modelo
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
