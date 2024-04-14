@@ -117,6 +117,10 @@ PrefabInstance:
       propertyPath: model
       value: 
       objectReference: {fileID: 8861867569692823584}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: towerMaxHealth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2722572031601481514, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1

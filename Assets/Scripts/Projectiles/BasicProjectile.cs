@@ -8,7 +8,7 @@ public class BasicProjectile : MonoBehaviour
     AttackableObject target;
    [SerializeField] float speed = 5f;
     float damage = 0;
-    float range = 1;
+    float range = 0.5f;
     public void Initialize(AttackableObject attackableObject, float Damage)
     {
         target = attackableObject;

@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: towerMaxHealth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3207898874220214297, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_Name
       value: NormalTowerBlue
