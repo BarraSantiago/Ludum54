@@ -27,5 +27,5 @@ public class UnitsDataSO : ScriptableObject
 
     //Se puede agregar particulas de Ataque/Invocacion/Muerte
 
-   public static float spawnCooldown = 10;
+   public static float spawnCooldown = 3;
 }

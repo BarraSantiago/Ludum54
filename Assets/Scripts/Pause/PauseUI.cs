@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private Button continueBtn = null;
     [SerializeField] private Button retryBtn = null;
     [SerializeField] private Button menuBtn = null;
-
+    [SerializeField] private AudioMixer audioMixer;
     private void Start()
     {
         continueBtn.onClick.AddListener(Continue);
@@ -22,6 +23,8 @@ public class PauseUI : MonoBehaviour
         holder.SetActive(status);
     }
 
+    
+    
     private void Continue()
     {
         TogglePause(false);
