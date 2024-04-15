@@ -24,5 +24,5 @@ MonoBehaviour:
   unitBluePrefab: {fileID: 121089003984463748, guid: 2a407398c78fc5848bb0ed6e6e59750f, type: 3}
   unitRedPrefab: {fileID: 121089003984463748, guid: d65967a2c399cf74cab659fbe869c699, type: 3}
   invocationSound: {fileID: 8300000, guid: 19abd3ae1a1c97249a803d6798394c0c, type: 3}
-  attackSound: {fileID: 8300000, guid: df0927763b003e24790c89099d4336c5, type: 3}
+  attackSound: {fileID: 8300000, guid: c7d4c21144a41574e87ef43327f59dbf, type: 3}
   deathSound: {fileID: 8300000, guid: d085b646194103c499a0029494066654, type: 3}
