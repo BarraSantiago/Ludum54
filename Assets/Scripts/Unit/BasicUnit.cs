@@ -188,11 +188,12 @@ public class BasicUnit : AttackableObject
             return;
         }
 
+            animationStateController.SetAttackAnimation(true);
+        
+
         if (attackCooldown <= 0)
         {
             attackCooldown = unitData.attackCooldown;
-
-            animationStateController.SetAttackAnimation(true);
 
             Hit();
         }

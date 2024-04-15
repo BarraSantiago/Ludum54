@@ -26,6 +26,8 @@ public class AnimationStateController : MonoBehaviour
     {
         if (!animator.GetBool(MoveKey))
         {
+            animator.SetBool(AttackKey, false);
+            animator.SetBool(MoveEndKey, false);
             animator.SetBool(MoveKey, move);
         }
     }
@@ -34,6 +36,8 @@ public class AnimationStateController : MonoBehaviour
     {
         if (!animator.GetBool(MoveEndKey))
         {
+            animator.SetBool(AttackKey, false);
+            animator.SetBool(MoveKey, false);
             animator.SetBool(MoveEndKey, move);
         }
     }
@@ -50,6 +54,8 @@ public class AnimationStateController : MonoBehaviour
     {
         if (!animator.GetBool(AttackKey))
         {
+            animator.SetBool(MoveKey, false);
+            animator.SetBool(MoveEndKey, false);
             animator.SetBool(AttackKey, move);
         }
     }
