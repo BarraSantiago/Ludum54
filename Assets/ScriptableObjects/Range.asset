@@ -18,7 +18,7 @@ MonoBehaviour:
   maxHealth: 340
   damage: 103
   attackSpeed: 1
-  range: 25
+  range: 15
   attackType: 1
   ghostPrefab: {fileID: 8825820133464266326, guid: d9105b702f2a640858ce56de31fbda3c, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: ca0ca038fb45cfb4fa6c982aa6c2c6ad, type: 3}

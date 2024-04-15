@@ -148,8 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 844089100130915476}
-  health: 100
-  team: 0
   spawnProyectilePostion: {fileID: 2460909735586691317}
   spawnProyectileParticles: {fileID: 8871264028486950255, guid: cbdce6da1b6c2e246b31c46f8a4dc60a, type: 3}
   projectile: {fileID: 1331813788855671721, guid: 5de8905d4d1a6fb429f9dc3f4875a02d, type: 3}
@@ -449,7 +447,7 @@ Animator:
   m_GameObject: {fileID: 2392962901369855879}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 1c81bdfbcb14c114291738efd72a2c06, type: 2}
+  m_Controller: {fileID: 22100000, guid: 7bb18a0af081a4941800cc5f3716cf9f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
