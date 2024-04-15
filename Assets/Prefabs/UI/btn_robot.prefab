@@ -394,7 +394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.3}
+  m_AnchoredPosition: {x: 0, y: -1.300003}
   m_SizeDelta: {x: 0, y: -48.6045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7574914686545864883
@@ -528,11 +528,11 @@ RectTransform:
   - {fileID: 228066546323839410}
   m_Father: {fileID: 110559608125955952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50.7}
-  m_SizeDelta: {x: 54.7967, y: 23.1868}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 54.75, y: 23.15}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &9016694206702442784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -714,7 +714,6 @@ MonoBehaviour:
     m_Bits: 64
   limits: []
   btnBuy: {fileID: 1855752972762288455}
-  txtName: {fileID: 0}
   txtCost: {fileID: 6787951283181613575}
   imgCooldown: {fileID: 7255088587042603261}
   imgEnabled: {fileID: 9063785447595692679}

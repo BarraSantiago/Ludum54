@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_text
       value: MENU
       objectReference: {fileID: 0}
+    - target: {fileID: 4084239901508973494, guid: d38d9b262bdb8554ebf0ab59e36ebe87, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4325260839949368209, guid: d38d9b262bdb8554ebf0ab59e36ebe87, type: 3}
       propertyPath: m_Name
       value: txt_title
@@ -398,6 +402,9 @@ MonoBehaviour:
   retryPressedLoseSprite: {fileID: 21300000, guid: 8885d04ad579b864d913c8a15282f099, type: 3}
   menuPressedLoseSprite: {fileID: 21300000, guid: d605d222e979e48469772564838386f0, type: 3}
   exitPressedLoseSprite: {fileID: 21300000, guid: 921a4cbc6c934e34dac8f8891c17af30, type: 3}
+  audioSourceWinLose: {fileID: 0}
+  audioClipWin: {fileID: 0}
+  audioClipLose: {fileID: 0}
 --- !u!1 &799256128559000472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4816290117365698228, guid: d38d9b262bdb8554ebf0ab59e36ebe87, type: 3}

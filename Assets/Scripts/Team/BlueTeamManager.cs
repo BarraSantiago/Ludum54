@@ -7,8 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class BlueTeamManager : TeamManager
 {
-    [SerializeField] private Slider energySlider;
-    [SerializeField] private TextMeshProUGUI txtEnergy = null;
+    [SerializeField] private Image energyBar;
     public System.Action OnLose = null;
 
     private UnitCard[] unitCards = null;
@@ -16,22 +15,23 @@ public class BlueTeamManager : TeamManager
     private void Awake()
     {
         team = Team.BlueTeam;
-        energySlider.maxValue = MaxEnergy;
-        energySlider.minValue = 0;
+        energyBar.fillAmount = 1f;
 
         unitCards = FindObjectsOfType<UnitCard>();
 
         for (int i = 0; i < unitCards.Length; i++)
         {
-            unitCards[i].onBuyItem = (cost) => { Energy -= cost; };
+            unitCards[i].onBuyItem = (cost) => 
+            { 
+                Energy -= cost; 
+            };
         }
     }
     
     private void Update()
     {
         ChargeEnergy();
-        energySlider.value = Energy;
-        txtEnergy.text = ((int)Energy).ToString();
+        energyBar.fillAmount = Energy * MaxEnergy / 100f;
 
         for (int i = 0; i < unitCards.Length; i++)
         {
