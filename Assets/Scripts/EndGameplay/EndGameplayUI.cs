@@ -57,6 +57,8 @@ public class EndGameplayUI : MonoBehaviour
 
     public void ToggleUI(bool win)
     {
+        Time.timeScale = 0;
+        
         holder.SetActive(true);
         backgroundImage.sprite = win ? winSprite : loseSprite;
 
@@ -84,11 +86,13 @@ public class EndGameplayUI : MonoBehaviour
 
     private void RetryGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 
     private void BackToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     

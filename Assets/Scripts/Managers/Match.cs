@@ -27,7 +27,6 @@ public class Match
         player1.OnLose += EndMatch;
         player1.mainTower.OnDie += EndMatch;
         player_bot.mainTower.OnDie += EndMatch;
-        //player_bot.OnLose += EndMatch;
     }
 
     public virtual void EndMatch()
