@@ -5,13 +5,15 @@ using UnityEngine.UI;
 public class PauseUI : MonoBehaviour
 {
     [SerializeField] private GameObject holder = null;
-    [SerializeField] private Button continueBtn = null;
+    [SerializeField] private Button retryBtn = null;
     [SerializeField] private Button menuBtn = null;
+    [SerializeField] private Button exitPauseBtn = null;
 
     private void Start()
     {
-        continueBtn.onClick.AddListener(Continue);
+        retryBtn.onClick.AddListener(Retry);
         menuBtn.onClick.AddListener(BackToMenu);
+        exitPauseBtn.onClick.AddListener(Continue);
     }
 
     public void TogglePause(bool status)
@@ -27,6 +29,11 @@ public class PauseUI : MonoBehaviour
 
     private void BackToMenu()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(0);
+    }
+
+    private void Retry()
+    {
+        SceneManager.LoadScene(1);
     }
 }
