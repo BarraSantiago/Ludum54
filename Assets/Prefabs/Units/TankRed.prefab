@@ -35,9 +35,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5585765016173236060}
   - {fileID: 6057020050358102338}
   - {fileID: 6492277445821947691}
+  - {fileID: 6725282020984672725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8129640173133786329
@@ -149,8 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 844089100130915476}
-  health: 100
-  team: 0
   spawnProyectilePostion: {fileID: 6492277445821947691}
   spawnProyectileParticles: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
   projectile: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
@@ -453,31 +451,26 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1770408247695429475, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5783439088634443842, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 151124909195849979}
+      addedObject: {fileID: 6552222958115145666}
   m_SourcePrefab: {fileID: 100100000, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
---- !u!4 &5585765016173236060 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3322060085215880960, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
-  m_PrefabInstance: {fileID: 7178398863953537116}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8867318630368044863 stripped
+--- !u!1 &3736910781022638110 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1770408247695429475, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5783439088634443842, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
   m_PrefabInstance: {fileID: 7178398863953537116}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &151124909195849979
+--- !u!95 &6552222958115145666
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8867318630368044863}
+  m_GameObject: {fileID: 3736910781022638110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 1c81bdfbcb14c114291738efd72a2c06, type: 2}
+  m_Controller: {fileID: 22100000, guid: 454ad638816aeea43bf4f477643b616e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -488,3 +481,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &6725282020984672725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4524934440754379145, guid: 5eada0d082767444a8b428111aef6c13, type: 3}
+  m_PrefabInstance: {fileID: 7178398863953537116}
+  m_PrefabAsset: {fileID: 0}
