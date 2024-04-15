@@ -5,8 +5,8 @@ public class AttackableObject : MonoBehaviour, Attackable
     [SerializeField] HealthBarController healthBarController;
 
     private float maxHealth = 100;
-    [SerializeField] private float health = 100;
-    [SerializeField] private Team team = default;
+    private float health = 100;
+    private Team team = default;
     public System.Action OnDie;
 
     public float Health { get => health; }

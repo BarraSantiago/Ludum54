@@ -13,6 +13,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7811517899192343868}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: health
       value: 1500
       objectReference: {fileID: 0}
@@ -22,8 +26,12 @@ PrefabInstance:
       objectReference: {fileID: 451344856500641836}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: towerMaxHealth
-      value: 1500
+      value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: healthBarController
+      value: 
+      objectReference: {fileID: 3074981341260796996}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: spawnProjectilePosition
       value: 
@@ -32,6 +40,10 @@ PrefabInstance:
       propertyPath: spawnProjectileParticles
       value: 
       objectReference: {fileID: 8871264028486950255, guid: cbdce6da1b6c2e246b31c46f8a4dc60a, type: 3}
+    - target: {fileID: 1581176256820290679, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.98
+      objectReference: {fileID: 0}
     - target: {fileID: 2722572031601481514, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -101,6 +113,17 @@ PrefabInstance:
       addedObject: {fileID: 7811517899192343868}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+--- !u!114 &3074981341260796996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2186051644059830639, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+  m_PrefabInstance: {fileID: 3817624629381799211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8797afe3addf98f4fb3dd2937fd10039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7733371570650630182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6892927626108327181, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
@@ -157,6 +180,14 @@ PrefabInstance:
     - target: {fileID: 1979090228546095366, guid: 1af2b494745c63343a3d1f561b5944ce, type: 3}
       propertyPath: m_Name
       value: PrincipalTowerBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573392042102495412, guid: 1af2b494745c63343a3d1f561b5944ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779397173443528670, guid: 1af2b494745c63343a3d1f561b5944ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8797673408226864812, guid: 1af2b494745c63343a3d1f561b5944ce, type: 3}
       propertyPath: m_LocalRotation.w

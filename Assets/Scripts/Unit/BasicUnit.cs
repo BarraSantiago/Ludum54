@@ -13,6 +13,7 @@ public class BasicUnit : AttackableObject
     }
 
     AnimationStateController animationStateController;
+    GameManager gm;
     [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject spawnProyectileParticles;
     [SerializeField] GameObject projectile;
@@ -49,6 +50,9 @@ public class BasicUnit : AttackableObject
         //debug, this should be set by an outside system
         OnUnitInstantiated();
         base.Start();
+
+        gm = GameManager.Get();
+        gm.OnDestroyNormalTower += () => currentState = State.FindingTarget;
     }
 
     private void FixedUpdate()
@@ -60,7 +64,9 @@ public class BasicUnit : AttackableObject
         }
 
         if (target)
+        {
             agent.SetDestination(target.transform.position);
+        }
         recalculateTarget();
         UpdateState();
     }
@@ -96,7 +102,7 @@ public class BasicUnit : AttackableObject
         AttackableObject[] allEntities = FindObjectsOfType<AttackableObject>(false);
         for (int i = 0; i < allEntities.Length; i++)
         {
-            if (allEntities[i].Team != Team && allEntities[i] != this)
+            if (allEntities[i].Team != Team && allEntities[i].Alive && allEntities[i] != this)
             {
                 if (target == null)
                 {
@@ -123,9 +129,11 @@ public class BasicUnit : AttackableObject
 
             for (int i = 0; i < allEntities.Length; i++)
             {
-                if (allEntities[i].Team != Team && allEntities[i] != this)
+                if (allEntities[i].Team != Team && allEntities[i].Alive && allEntities[i] != this)
                 {
                     enemies.Add(allEntities[i]);
+
+                    Debug.Log(allEntities[i].name);
                 }
             }
 
@@ -188,8 +196,8 @@ public class BasicUnit : AttackableObject
             return;
         }
 
-            animationStateController.SetAttackAnimation(true);
-        
+        animationStateController.SetAttackAnimation(true);
+
 
         if (attackCooldown <= 0)
         {
@@ -301,6 +309,13 @@ public class BasicUnit : AttackableObject
 
         base.Die();
     }
-
     #endregion
+
+#if DEBUG
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, unitData.range);
+    }
+#endif
 }

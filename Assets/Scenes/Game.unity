@@ -1849,6 +1849,14 @@ PrefabInstance:
       value: MainTowerBlue
       objectReference: {fileID: 0}
     - target: {fileID: 3761535898684893454, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
+      propertyPath: towerMaxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
       propertyPath: basicProjectile
       value: 
       objectReference: {fileID: 1331813788855671721, guid: cf2256ec847871f478d59075c7db162f, type: 3}
@@ -1862,7 +1870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7733371570650630182, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 19.835852
       objectReference: {fileID: 0}
     - target: {fileID: 7733371570650630182, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1890,6 +1898,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7733371570650630182, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811517899192343868, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811517899192343868, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2146,6 +2162,18 @@ PrefabInstance:
     - target: {fileID: 1764938642311144754, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
       propertyPath: m_Name
       value: NormalTowerBlue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764938642311144754, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: towerMaxHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7733371570650630182, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2709,6 +2737,18 @@ PrefabInstance:
     - target: {fileID: 1764938642311144754, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
       propertyPath: m_Name
       value: NormalTowerBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764938642311144754, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: towerMaxHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7733371570650630182, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
       propertyPath: m_LocalPosition.x

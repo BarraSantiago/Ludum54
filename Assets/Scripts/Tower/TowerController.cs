@@ -45,14 +45,14 @@ public class TowerController : AttackableObject
 
     public override void Die()
     {
-        (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
 
         OnDie?.Invoke();
 
-        //Animacion de destruccion del modelo
-
         modelTower.gameObject.SetActive(false);
-        this.enabled = false;
+        Destroy(this);
+
+
+        (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -87,7 +87,7 @@ public class TowerController : AttackableObject
         }
 
         counter += Time.deltaTime;
-        
+
         if (targets[0] != null)
             modelTower.transform.LookAt(targets[0].transform);
 

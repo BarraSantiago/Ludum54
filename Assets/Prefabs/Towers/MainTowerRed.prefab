@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750874672181949625, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.34
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 6892927626108327181, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,6 +125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7733371570650630182}
     m_Modifications:
+    - target: {fileID: 4475897843112570577, guid: 841fdb7d8e149ce4cb6b03367255f0da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6338762419818298035, guid: 841fdb7d8e149ce4cb6b03367255f0da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -168,6 +172,10 @@ PrefabInstance:
     - target: {fileID: 6682249459506421769, guid: 841fdb7d8e149ce4cb6b03367255f0da, type: 3}
       propertyPath: m_Name
       value: PrincipalTowerRedModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528699801296499131, guid: 841fdb7d8e149ce4cb6b03367255f0da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
