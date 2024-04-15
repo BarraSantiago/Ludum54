@@ -149,11 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 844089100130915476}
-  health: 100
-  team: 0
   spawnProyectilePostion: {fileID: 6492277445821947691}
   spawnProyectileParticles: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
   projectile: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
+  explotionArea: 10
   unitData: {fileID: 11400000, guid: 808b109b6ba93534c8e3a157dbe571d2, type: 2}
   target: {fileID: 0}
 --- !u!195 &2102116438080531554

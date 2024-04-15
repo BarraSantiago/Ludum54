@@ -108,7 +108,7 @@ public class TowerController : AttackableObject
     {
         for (int i = targets.Count - 1; i >= 0; i--)
         {
-            if (!targets[i].Alive)
+            if (!targets[i].Alive || !targets[i])
             {
                 targets.RemoveAt(i);
             }

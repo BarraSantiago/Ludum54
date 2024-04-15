@@ -17,6 +17,8 @@ public class BasicUnit : AttackableObject
     [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject spawnProyectileParticles;
     [SerializeField] GameObject projectile;
+    [SerializeField] float explotionArea = 10; 
+
 
     #region PROTECTED_FIELDS
 
@@ -231,15 +233,22 @@ public class BasicUnit : AttackableObject
                 break;
             case AttackType.Bomb:
 
-                Collider[] colliders = Physics.OverlapSphere(transform.position, unitData.range);
+                HashSet<AttackableObject> detectedTargets = new HashSet<AttackableObject>();
+
+                Collider[] colliders = Physics.OverlapSphere(spawnProyectilePostion.position, explotionArea, -1, QueryTriggerInteraction.Ignore);
 
                 foreach (Collider coll in colliders)
                 {
-                    if (coll.TryGetComponent(out AttackableObject targets))
+                    if (coll.TryGetComponent(out AttackableObject target))
                     {
-                        if (target.Team != team)
+                        if (!detectedTargets.Contains(target)) // Verifica si el objetivo ya ha sido detectado
                         {
-                            target.ReceiveDamage(unitData.damage);
+                            if (target.Team != team && target)
+                            {
+                                Debug.Log(target, target.gameObject);
+                                target.ReceiveDamage(unitData.damage);
+                                detectedTargets.Add(target); // Agrega el objetivo a la lista de objetivos detectados
+                            }
                         }
                     }
                 }
@@ -312,11 +321,12 @@ public class BasicUnit : AttackableObject
         base.Die();
     }
     #endregion
-   
-    
-    void OnDrawGizmos()
+
+
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, unitData.range);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(spawnProyectilePostion.position, explotionArea);
+       // Gizmos.DrawWireSphere(transform.position, unitData.range);
     }
 }
