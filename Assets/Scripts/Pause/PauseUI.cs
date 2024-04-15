@@ -10,6 +10,7 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private Button retryBtn = null;
     [SerializeField] private Button menuBtn = null;
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Tutorial tutorial;
     private void Start()
     {
         continueBtn.onClick.AddListener(Continue);
@@ -19,7 +20,17 @@ public class PauseUI : MonoBehaviour
 
     public void TogglePause(bool status)
     {
-        Time.timeScale = status ? 0f : 1f;
+        if (!status)
+        {
+            if (!tutorial.active)
+            {
+                Time.timeScale = 1;
+            }
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
         holder.SetActive(status);
     }
 
