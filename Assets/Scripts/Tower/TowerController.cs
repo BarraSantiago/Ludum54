@@ -36,6 +36,13 @@ public class TowerController : AttackableObject
         SetMaxHealth(towerMaxHealth);
     }
 
+    public override void ReceiveDamage(float damage)
+    {
+        base.ReceiveDamage(damage);
+
+        gm.OnTowerReciveHit?.Invoke();
+    }
+
     public override void Die()
     {
         (isMainTower ? gm.OnDestroyMainTower : gm.OnDestroyNormalTower)?.Invoke();

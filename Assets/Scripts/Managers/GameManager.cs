@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public Action OnDestroyMainTower;
     public Action OnDestroyNormalTower;
+    public Action OnTowerReciveHit;
 
     [SerializeField] Match match = new Match();
     [SerializeField] TextMeshProUGUI timerText = null;
