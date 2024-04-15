@@ -152,6 +152,8 @@ MonoBehaviour:
   spawnProyectilePostion: {fileID: 7096565670366101958}
   spawnProyectileParticles: {fileID: 8871264028486950255, guid: cbdce6da1b6c2e246b31c46f8a4dc60a, type: 3}
   projectile: {fileID: 1331813788855671721, guid: 5de8905d4d1a6fb429f9dc3f4875a02d, type: 3}
+  explotionParticles: {fileID: 0}
+  explotionArea: 10
   unitData: {fileID: 11400000, guid: bc551d8f94dd6d14fa79fd917f72957e, type: 2}
   target: {fileID: 0}
 --- !u!195 &2102116438080531554
@@ -261,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 4359625311320347927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.137, y: 0.552, z: -1.158}
+  m_LocalPosition: {x: -1.108, y: 0.552, z: 1.234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -9,7 +9,10 @@ public class TowerController : AttackableObject
     [SerializeField] float towerMaxHealth;
     [SerializeField] GameObject basicProjectile;
     [SerializeField] GameObject spawnProjectileParticles;
+    [SerializeField] Transform spawnProyectilePostion;
+    [SerializeField] GameObject spawnProyectileParticles;
 
+    [SerializeField] GameObject explotionParticles;
     [SerializeField] Transform spawnProjectilePosition;
     [SerializeField] Transform modelTower;
     [SerializeField] Team towerTeam;
@@ -45,6 +48,7 @@ public class TowerController : AttackableObject
 
     public override void Die()
     {
+        Instantiate(explotionParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
 
         OnDie?.Invoke();
 

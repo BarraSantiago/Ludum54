@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2803569517957638551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3706306165235013332}
+  m_Layer: 0
+  m_Name: Death particles spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3706306165235013332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803569517957638551}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.78, z: -0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7733371570650630182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3733646157816758859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +176,14 @@ PrefabInstance:
       value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: explotionParticles
+      value: 
+      objectReference: {fileID: 7839764301761735084, guid: c684b489c160acb49ac52fc805ba1c85, type: 3}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: spawnProyectilePostion
+      value: 
+      objectReference: {fileID: 3706306165235013332}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: spawnProjectilePosition
       value: 
       objectReference: {fileID: 4856352077127971285}
@@ -152,6 +191,10 @@ PrefabInstance:
       propertyPath: spawnProjectileParticles
       value: 
       objectReference: {fileID: 8871264028486950255, guid: cbdce6da1b6c2e246b31c46f8a4dc60a, type: 3}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: spawnProyectileParticles
+      value: 
+      objectReference: {fileID: 1764938642311144754}
     - target: {fileID: 2722572031601481514, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -219,6 +262,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6892927626108327181, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5198515569247780667}
+    - targetCorrespondingSourceObject: {fileID: 6892927626108327181, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3706306165235013332}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3207898874220214297, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       insertIndex: -1
