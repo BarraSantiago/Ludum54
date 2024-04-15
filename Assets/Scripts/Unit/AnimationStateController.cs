@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationStateController : MonoBehaviour
 {
     [Header("Setup")]
-   private Animator animator;
+    private Animator animator;
 
     string MoveKey = "Move";
     string MoveEndKey = "MoveEnd";
@@ -15,6 +15,11 @@ public class AnimationStateController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+    }
+
+    public bool GetMoveAnimation()
+    {
+        return animator.GetBool(MoveKey);
     }
 
     public void SetMoveAnimation(bool move)

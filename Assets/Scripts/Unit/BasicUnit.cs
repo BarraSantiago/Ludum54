@@ -192,7 +192,12 @@ public class BasicUnit : AttackableObject
         if (attackCooldown <= 0)
         {
             attackCooldown = unitData.attackCooldown;
-            animationStateController.SetAttackAnimation(true);
+
+            if (!animationStateController.GetMoveAnimation())
+            {
+                animationStateController.SetAttackAnimation(true);
+            }
+
             Hit();
         }
     }
