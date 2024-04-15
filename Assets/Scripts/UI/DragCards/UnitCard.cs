@@ -187,7 +187,7 @@ public class UnitCard : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
         if (ghostInstance.transform.position.z < limits[0].position.z && ghostInstance.transform.position.z > limits[1].position.z &&
             ghostInstance.transform.position.x > limits[0].position.x && ghostInstance.transform.position.x < limits[1].position.x)
         {
-            GameObject unit = Instantiate(unitToSpawn.unitBluePrefab, ghostInstance.transform.position, unitToSpawn.unitBluePrefab.transform.rotation);
+            GameObject unit = Instantiate(unitToSpawn.unitBluePrefab, ghostInstance.transform.position, ghostInstance.transform.rotation);
             
             unit.GetComponent<BasicUnit>().SetUnitData(unitToSpawn, Team.BlueTeam);
 

@@ -280,12 +280,24 @@ PrefabInstance:
       value: BombRedPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.4283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.4283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.4283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.54
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -301,11 +313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8778937640318152034, guid: 7c25bca4de981874a8dc1b2943fec2bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -366,6 +378,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8606837008501888664}
     m_Modifications:
+    - target: {fileID: 1731838040137955043, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2564332902799321254, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
       propertyPath: healthBar
       value: 
@@ -440,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948162097836283248, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.83
+      value: 4.78
       objectReference: {fileID: 0}
     - target: {fileID: 8948162097836283248, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
