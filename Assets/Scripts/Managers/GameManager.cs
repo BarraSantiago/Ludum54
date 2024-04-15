@@ -1,7 +1,9 @@
 using System;
-using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
+
+using TMPro;
 using Utils;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         StartMatch();
         match.onEndGame += end;
     }
+
     private void end()
     {
         Debug.Log("End");
@@ -34,11 +37,20 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         //ver quien tiene menos vida
         Debug.Log("CheckVictory");
     }
+
     public void Update()
     {
         match.Update();
-        if (timerText)
-        timerText.text = match.GetTimeLeft().ToString("00");
+        UpdateTimer();
+    }
+
+    private void UpdateTimer()
+    {
+        int time = Mathf.RoundToInt(match.GetTimeLeft());
+        int minutes = (int)(time / 60f);
+        int seconds = (int)(time % 60f);
+
+        timerText.text = minutes + ":";
+        timerText.text += seconds < 10 ? "0" + seconds : seconds.ToString();
     }
 }
-

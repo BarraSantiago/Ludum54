@@ -7,7 +7,8 @@ public class VolumeManager : MonoBehaviour
     [SerializeField] private GameObject onSprite;
     [SerializeField] private GameObject offSprite;
 
-    private bool status;
+    private bool status = true;
+
     public void ToggleVolume()
     {
         status = !status;
