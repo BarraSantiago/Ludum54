@@ -17,6 +17,8 @@ public class BasicUnit : AttackableObject
     [SerializeField] Transform spawnProyectilePostion;
     [SerializeField] GameObject spawnProyectileParticles;
     [SerializeField] GameObject projectile;
+
+    [SerializeField] GameObject explotionParticles;
     [SerializeField] float explotionArea = 10; 
 
 
@@ -253,6 +255,7 @@ public class BasicUnit : AttackableObject
                     }
                 }
 
+                Instantiate(explotionParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
                 Destroy(gameObject);
                 //Hay que instanciar alguna explosion
 

@@ -152,6 +152,7 @@ MonoBehaviour:
   spawnProyectilePostion: {fileID: 7842211276675698078}
   spawnProyectileParticles: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
   projectile: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
+  explotionParticles: {fileID: 7839764301761735084, guid: c684b489c160acb49ac52fc805ba1c85, type: 3}
   explotionArea: 6
   unitData: {fileID: 11400000, guid: 3b69075173ee4054793ed896ca6bbd24, type: 2}
   target: {fileID: 0}
