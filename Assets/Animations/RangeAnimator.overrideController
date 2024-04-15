@@ -6,18 +6,18 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MeleeAnimator
+  m_Name: RangeAnimator
   m_Controller: {fileID: 9100000, guid: 311825195a9e8914a8bc8402c9e91333, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 1827226128182048838, guid: edaf5984c850a334087f14bd266ef03d, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: edaf5984c850a334087f14bd266ef03d, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 2e61e7ec074a8f541beb5ec534d9a3ef, type: 3}
   - m_OriginalClip: {fileID: 1827226128182048838, guid: 231f1dee120aac948b3b4ece90c1eb08, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: 231f1dee120aac948b3b4ece90c1eb08, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 7c8d22cd9b2b8c74fafddba3852ebff1, type: 3}
   - m_OriginalClip: {fileID: 1827226128182048838, guid: 3980ae34c661ab9418dd44b6e33a93ec, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: 3980ae34c661ab9418dd44b6e33a93ec, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 3723bca504772ee448bf2c0509fd876c, type: 3}
   - m_OriginalClip: {fileID: 1827226128182048838, guid: 7ab34de409e945a49a2a73b6a6ee89db, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: 7ab34de409e945a49a2a73b6a6ee89db, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: ff97dacc70b11a2498f01f296a1fe65a, type: 3}
   - m_OriginalClip: {fileID: 1827226128182048838, guid: 99e91acba73752a4a89ac5d8fcbdd975, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: 99e91acba73752a4a89ac5d8fcbdd975, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: f35da32e0d51b2846b1d1c8caa6766b3, type: 3}
   - m_OriginalClip: {fileID: 1827226128182048838, guid: 328cc78136a217f4e83c49cb06397f42, type: 3}
-    m_OverrideClip: {fileID: 1827226128182048838, guid: 328cc78136a217f4e83c49cb06397f42, type: 3}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 222b1482e7ab4ba40a24c5db4de3dda7, type: 3}
