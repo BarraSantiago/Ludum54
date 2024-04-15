@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarController: {fileID: 844089100130915476}
+  health: 100
+  team: 0
   spawnProyectilePostion: {fileID: 6492277445821947691}
   spawnProyectileParticles: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
   projectile: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
@@ -275,10 +277,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8606837008501888664}
     m_Modifications:
-    - target: {fileID: 1731838040137955043, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2564332902799321254, guid: 386bae719508e43479faf379aa64d0f8, type: 3}
       propertyPath: healthBar
       value: 
@@ -479,7 +477,7 @@ Animator:
   m_GameObject: {fileID: 8867318630368044863}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 454ad638816aeea43bf4f477643b616e, type: 2}
+  m_Controller: {fileID: 22100000, guid: 1c81bdfbcb14c114291738efd72a2c06, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
