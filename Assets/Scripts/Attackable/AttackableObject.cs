@@ -49,8 +49,7 @@ public class AttackableObject : MonoBehaviour, Attackable
 
     public virtual void Die()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
         OnDie?.Invoke();
-        Debug.Log("Dead");
     }
 }

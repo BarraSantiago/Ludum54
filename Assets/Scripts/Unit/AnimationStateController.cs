@@ -24,21 +24,33 @@ public class AnimationStateController : MonoBehaviour
 
     public void SetMoveAnimation(bool move)
     {
-        animator.SetBool(MoveKey, move);
+        if (!animator.GetBool(MoveKey))
+        {
+            animator.SetBool(MoveKey, move);
+        }
     }
 
     public void SetMoveEndAnimation(bool move)
     {
-        animator.SetBool(MoveEndKey, move);
+        if (!animator.GetBool(MoveEndKey))
+        {
+            animator.SetBool(MoveEndKey, move);
+        }
     }
 
     public void SetDieAnimation(bool move)
     {
-        animator.SetBool(MoveKey, move);
+        if (!animator.GetBool(DieKey))
+        {
+            animator.SetBool(DieKey, move);
+        }
     }
 
     public void SetAttackAnimation(bool move)
     {
-        animator.SetBool(MoveKey, move);
+        if (!animator.GetBool(AttackKey))
+        {
+            animator.SetBool(AttackKey, move);
+        }
     }
 }

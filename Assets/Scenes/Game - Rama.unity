@@ -1927,10 +1927,7 @@ MonoBehaviour:
   - {fileID: 553519715}
   - {fileID: 830133144}
   units:
-  - {fileID: 11400000, guid: 3b69075173ee4054793ed896ca6bbd24, type: 2}
   - {fileID: 11400000, guid: 533701f4cbf264241b6799daf9cc8514, type: 2}
-  - {fileID: 11400000, guid: bc551d8f94dd6d14fa79fd917f72957e, type: 2}
-  - {fileID: 11400000, guid: 808b109b6ba93534c8e3a157dbe571d2, type: 2}
 --- !u!4 &1307278981
 Transform:
   m_ObjectHideFlags: 0

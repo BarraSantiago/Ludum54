@@ -11,7 +11,7 @@ public class TowerController : AttackableObject
     [SerializeField] GameObject spawnProjectileParticles;
 
     [SerializeField] Transform spawnProjectilePosition;
-    [SerializeField] Transform model;
+    [SerializeField] Transform modelTower;
     [SerializeField] Team towerTeam;
 
     [SerializeField] float damage;
@@ -79,6 +79,7 @@ public class TowerController : AttackableObject
         }
 
         counter += Time.deltaTime;
+        modelTower.transform.LookAt(targets[0].transform);
 
         if (counter >= attackSpeed)
         {

@@ -163,6 +163,7 @@ public class BasicUnit : AttackableObject
         if (TargetIsClose())
         {
             agent.isStopped = true;
+            animationStateController.SetMoveEndAnimation(true);
             currentState = State.Attacking;
         }
         else
@@ -178,16 +179,11 @@ public class BasicUnit : AttackableObject
         if (!TargetIsValid())
         {
             currentState = State.FindingTarget;
-
-            animationStateController.SetAttackAnimation(false);
-            animationStateController.SetMoveAnimation(true);
             return;
         }
 
         if (!TargetIsClose())
         {
-            animationStateController.SetAttackAnimation(false);
-            animationStateController.SetMoveAnimation(true);
             currentState = State.PursuingTarget;
             return;
         }
@@ -196,10 +192,7 @@ public class BasicUnit : AttackableObject
         {
             attackCooldown = unitData.attackCooldown;
 
-            if (!animationStateController.GetMoveAnimation())
-            {
-                animationStateController.SetAttackAnimation(true);
-            }
+            animationStateController.SetAttackAnimation(true);
 
             Hit();
         }
@@ -229,9 +222,9 @@ public class BasicUnit : AttackableObject
                 break;
             case AttackType.Bomb:
                 Collider[] colliders = Physics.OverlapSphere(transform.position, unitData.range);
-                
+
                 List<BasicUnit> gos = new List<BasicUnit>();
-                
+
                 foreach (Collider collider in colliders)
                 {
                     BasicUnit basicUnit = collider.GetComponent<BasicUnit>();
@@ -240,7 +233,7 @@ public class BasicUnit : AttackableObject
                         gos.Add(basicUnit);
                     }
                 }
-                gos = gos.FindAll(collider => collider.Team != Team );
+                gos = gos.FindAll(collider => collider.Team != Team);
 
                 gos.FindAll(x => x != null).ForEach(x => x.ReceiveDamage(unitData.damage));
                 Destroy(gameObject);
@@ -259,13 +252,21 @@ public class BasicUnit : AttackableObject
         switch (currentState)
         {
             case State.FindingTarget:
+
                 FindTarget();
+
                 break;
+
             case State.PursuingTarget:
+
+                animationStateController.SetMoveAnimation(true);
                 PursueTarget();
+
                 break;
             case State.Attacking:
+
                 Attack();
+
                 break;
             default:
                 break;
