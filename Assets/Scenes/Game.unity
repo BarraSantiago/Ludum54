@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTowerRed
       objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 922c2c8521f8ed545a2a001d57a9279a, type: 3}
+      propertyPath: basicProjectile
+      value: 
+      objectReference: {fileID: 4432856982775035181, guid: 6ef0064b6d48cc8459663776e2cc4598, type: 3}
     - target: {fileID: 6229764369432064956, guid: 922c2c8521f8ed545a2a001d57a9279a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.59
@@ -1844,6 +1848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTowerBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 3761535898684893454, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
+      propertyPath: basicProjectile
+      value: 
+      objectReference: {fileID: 1331813788855671721, guid: cf2256ec847871f478d59075c7db162f, type: 3}
     - target: {fileID: 7733371570650630182, guid: 7fa2517788fa9dd4f82f2733b874b3ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -2127,6 +2135,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1550383580}
     m_Modifications:
+    - target: {fileID: 1239168885468465665, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694200501577670388, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1764938642311144754, guid: 817ae867fd3ff354db588b48e69b4bcf, type: 3}
       propertyPath: m_Name
       value: NormalTowerBlue (1)

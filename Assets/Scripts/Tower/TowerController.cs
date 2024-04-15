@@ -51,7 +51,8 @@ public class TowerController : AttackableObject
 
         //Animacion de destruccion del modelo
 
-        Destroy(gameObject);
+        modelTower.gameObject.SetActive(false);
+        this.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -86,7 +87,9 @@ public class TowerController : AttackableObject
         }
 
         counter += Time.deltaTime;
-        modelTower.transform.LookAt(targets[0].transform);
+        
+        if (targets[0] != null)
+            modelTower.transform.LookAt(targets[0].transform);
 
         if (counter >= attackSpeed)
         {
