@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 using TMPro;
 
 public class EndGameplayUI : MonoBehaviour
 {
-    [Header("Main Configuration")]
-    [SerializeField] private GameObject holder = null;
+    [Header("Main Configuration")] [SerializeField]
+    private GameObject holder = null;
+
     [SerializeField] private RectTransform holderButtonsTransform = null;
     [SerializeField] private Image backgroundImage = null;
     [SerializeField] private Button retryBtn = null;
@@ -15,8 +15,9 @@ public class EndGameplayUI : MonoBehaviour
     [SerializeField] private Button exitBtn = null;
     [SerializeField] private TMP_Text selectorText = null;
 
-    [Header("Win Configuration")]
-    [SerializeField] private Sprite winSprite = null;
+    [Header("Win Configuration")] [SerializeField]
+    private Sprite winSprite = null;
+
     [SerializeField] private Color winColor = Color.white;
     [SerializeField] private Vector2 winButtonPosition = Vector2.zero;
 
@@ -28,8 +29,9 @@ public class EndGameplayUI : MonoBehaviour
     [SerializeField] private Sprite menuPressedWinSprite = null;
     [SerializeField] private Sprite exitPressedWinSprite = null;
 
-    [Header("Lose Configuration")]
-    [SerializeField] private Sprite loseSprite = null;
+    [Header("Lose Configuration")] [SerializeField]
+    private Sprite loseSprite = null;
+
     [SerializeField] private GameObject loseTextGO = null;
     [SerializeField] private Color loseColor = Color.white;
     [SerializeField] private Vector2 loseButtonPosition = Vector2.zero;
@@ -42,8 +44,7 @@ public class EndGameplayUI : MonoBehaviour
     [SerializeField] private Sprite menuPressedLoseSprite = null;
     [SerializeField] private Sprite exitPressedLoseSprite = null;
 
-    [Header("Audio")]
-    [SerializeField] protected AudioSource audioSourceWinLose = null;
+    [Header("Audio")] [SerializeField] protected AudioSource audioSourceWinLose = null;
     [SerializeField] protected AudioClip audioClipWin = null;
     [SerializeField] protected AudioClip audioClipLose = null;
 
@@ -63,7 +64,7 @@ public class EndGameplayUI : MonoBehaviour
     public void ToggleUI(bool win)
     {
         Time.timeScale = 0;
-        
+
         holder.SetActive(true);
         backgroundImage.sprite = win ? winSprite : loseSprite;
 
@@ -102,11 +103,19 @@ public class EndGameplayUI : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
-    
+
     private void ExitGame()
     {
+#if UNITY_EDITOR
+        if (UnityEditor.EditorApplication.isPlaying)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+#endif
+
         Application.Quit();
     }
+
 
     private void SetPressedSprite(Button btn, Sprite sprite)
     {
