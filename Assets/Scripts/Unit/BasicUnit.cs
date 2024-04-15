@@ -58,6 +58,7 @@ public class BasicUnit : AttackableObject
             Debug.Log("No more enemies");
             return;
         }
+
         if (target)
             agent.SetDestination(target.transform.position);
         recalculateTarget();
@@ -89,6 +90,7 @@ public class BasicUnit : AttackableObject
     #endregion
 
     #region PROTECTED_METHODS
+
     private void recalculateTarget()
     {
         AttackableObject[] allEntities = FindObjectsOfType<AttackableObject>(false);
@@ -102,15 +104,16 @@ public class BasicUnit : AttackableObject
                 }
                 else
                 {
-                    if (Vector3.Distance(allEntities[i].transform.position, transform.position) < Vector3.Distance(target.transform.position, transform.position))
+                    if (Vector3.Distance(allEntities[i].transform.position, transform.position) <
+                        Vector3.Distance(target.transform.position, transform.position))
                     {
                         target = allEntities[i];
                     }
                 }
             }
         }
-
     }
+
     protected virtual void FindTarget()
     {
         if (!TargetIsValid())
@@ -199,7 +202,6 @@ public class BasicUnit : AttackableObject
 
     protected virtual void Hit()
     {
-
         if (unitData.attackSound)
         {
             audioSource.clip = unitData.attackSound;
@@ -212,7 +214,8 @@ public class BasicUnit : AttackableObject
                 target.ReceiveDamage(unitData.damage);
                 break;
             case AttackType.Range:
-                GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
+                GameObject proj = Instantiate(projectile.gameObject, spawnProyectilePostion.position,
+                    spawnProyectilePostion.rotation);
                 Instantiate(spawnProyectileParticles, spawnProyectilePostion.position, spawnProyectilePostion.rotation);
                 BasicProjectile basicProjectile = proj.GetComponent<BasicProjectile>();
 
@@ -221,26 +224,25 @@ public class BasicUnit : AttackableObject
                 break;
             case AttackType.Bomb:
                 Collider[] colliders = Physics.OverlapSphere(transform.position, unitData.range);
+                
                 List<BasicUnit> gos = new List<BasicUnit>();
-                for (int i = 0; i < colliders.Length; i++)
+                
+                foreach (Collider collider in colliders)
                 {
-                    BasicUnit unit = colliders[i].transform.gameObject.GetComponent<BasicUnit>();
-                    if (unit != null)
+                    BasicUnit basicUnit = collider.GetComponent<BasicUnit>();
+                    if (basicUnit)
                     {
-                        if (unit.Team != this.Team)
-                        {
-                            gos.Add(unit);
-                        }
+                        gos.Add(basicUnit);
                     }
                 }
+                gos = gos.FindAll(collider => collider.Team != Team );
+
                 gos.FindAll(x => x != null).ForEach(x => x.ReceiveDamage(unitData.damage));
                 Destroy(gameObject);
                 break;
             default:
                 break;
         }
-
-
     }
 
     #endregion
