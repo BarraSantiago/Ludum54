@@ -1044,6 +1044,17 @@ PrefabInstance:
       addedObject: {fileID: 850093102}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf3abf57eedb43dbb195eb55370e529, type: 3}
+--- !u!114 &577530332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011205335251851807, guid: 2cf3abf57eedb43dbb195eb55370e529, type: 3}
+  m_PrefabInstance: {fileID: 577530331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &599682307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7733371570650630182, guid: 98fd521792ddeeb41a771c258825029a, type: 3}
@@ -2640,8 +2651,8 @@ MonoBehaviour:
   match:
     player1: {fileID: 632534976}
     player_bot: {fileID: 1307278980}
-    matchTime: 60
-  timerText: {fileID: 0}
+    matchTime: 180
+  timerText: {fileID: 577530332}
   startButton: {fileID: 0}
 --- !u!4 &2119832623
 Transform:
