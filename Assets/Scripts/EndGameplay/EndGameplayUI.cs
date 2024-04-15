@@ -42,6 +42,11 @@ public class EndGameplayUI : MonoBehaviour
     [SerializeField] private Sprite menuPressedLoseSprite = null;
     [SerializeField] private Sprite exitPressedLoseSprite = null;
 
+    [Header("Audio")]
+    [SerializeField] protected AudioSource audioSourceWinLose = null;
+    [SerializeField] protected AudioClip audioClipWin = null;
+    [SerializeField] protected AudioClip audioClipLose = null;
+
     private void Start()
     {
         retryBtn.onClick.AddListener(RetryGame);
@@ -74,11 +79,13 @@ public class EndGameplayUI : MonoBehaviour
 
         if (win)
         {
+            audioSourceWinLose.PlayOneShot(audioClipWin);
             holderButtonsTransform.anchoredPosition = winButtonPosition;
             loseTextGO.SetActive(false);
         }
         else
         {
+            audioSourceWinLose.PlayOneShot(audioClipLose);
             holderButtonsTransform.anchoredPosition = loseButtonPosition;
             loseTextGO.SetActive(true);
         }

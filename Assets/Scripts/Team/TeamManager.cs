@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class TeamManager : MonoBehaviour
 {    
@@ -9,12 +10,35 @@ public abstract class TeamManager : MonoBehaviour
 
     public TowerController[] towers;
 
+    protected float totalHp;
+
+    protected float currentHp;
+
+    [SerializeField] private Image healthBar;
+    
+    private void Start()
+    {
+        GameManager.Get().OnTowerReciveHit += GetCurrentHp;
+        GameManager.Get().OnTowerReciveHit += UpdateHealthBar;
+        totalHp = GetHp();
+    }
+
+    public void GetCurrentHp()
+    {
+        currentHp = GetHp();
+    }
+
     public float GetHp()
     {
         float totalHeal = 0;
         totalHeal += mainTower!= null ? mainTower.Health : 0;
         totalHeal += towers.Sum(tower => tower!=null ? tower.Health : 0);
         return totalHeal;
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHp / totalHp;
     }
 
     /// <summary>
