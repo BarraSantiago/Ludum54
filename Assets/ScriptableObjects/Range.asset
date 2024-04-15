@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12404e8db43f6b94cbcd3b5487a43ff6, type: 3}
   m_Name: Range
   m_EditorClassIdentifier: 
-  unitsName: range
-  cost: 1
+  unitsName: Mosquetera
+  cost: 4
   movementSpeed: 5
-  maxHealth: 25
-  damage: 7
+  maxHealth: 340
+  damage: 103
   attackSpeed: 1
-  range: 5
-  attackCooldown: 0.5
+  range: 25
   attackType: 1
   ghostPrefab: {fileID: 8825820133464266326, guid: d9105b702f2a640858ce56de31fbda3c, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: ca0ca038fb45cfb4fa6c982aa6c2c6ad, type: 3}

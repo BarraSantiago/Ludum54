@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12404e8db43f6b94cbcd3b5487a43ff6, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
-  unitsName: bomb
-  cost: 1
-  movementSpeed: 7
-  maxHealth: 20
-  damage: 20
-  attackSpeed: 1
+  unitsName: Bombardero
+  cost: 3
+  movementSpeed: 10
+  maxHealth: 250
+  damage: 350
+  attackSpeed: 0.1
   range: 5
-  attackCooldown: 1
   attackType: 2
   ghostPrefab: {fileID: 5751029880136242031, guid: 09cfb67ecae6643ca964609d6dd3be83, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: 02879a3bed7c23c4a9b81769f9b08c0b, type: 3}

@@ -201,7 +201,7 @@ public class BasicUnit : AttackableObject
 
         if (attackCooldown <= 0)
         {
-            attackCooldown = unitData.attackCooldown;
+            attackCooldown = unitData.attackSpeed;
 
             Hit();
         }
@@ -230,22 +230,24 @@ public class BasicUnit : AttackableObject
                 basicProjectile.SetDamage(unitData.damage);
                 break;
             case AttackType.Bomb:
+
                 Collider[] colliders = Physics.OverlapSphere(transform.position, unitData.range);
 
-                List<BasicUnit> gos = new List<BasicUnit>();
-
-                foreach (Collider collider in colliders)
+                foreach (Collider coll in colliders)
                 {
-                    BasicUnit basicUnit = collider.GetComponent<BasicUnit>();
-                    if (basicUnit)
+                    if (coll.TryGetComponent(out AttackableObject targets))
                     {
-                        gos.Add(basicUnit);
+                        if (target.Team != team)
+                        {
+                            target.ReceiveDamage(unitData.damage);
+                        }
                     }
                 }
-                gos = gos.FindAll(collider => collider.Team != Team);
 
-                gos.FindAll(x => x != null).ForEach(x => x.ReceiveDamage(unitData.damage));
                 Destroy(gameObject);
+                //Hay que instanciar alguna explosion
+
+
                 break;
             default:
                 break;
@@ -310,12 +312,11 @@ public class BasicUnit : AttackableObject
         base.Die();
     }
     #endregion
-
-#if DEBUG
-    void OnDrawGizmosSelected()
+   
+    
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, unitData.range);
     }
-#endif
 }

@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12404e8db43f6b94cbcd3b5487a43ff6, type: 3}
   m_Name: Melee
   m_EditorClassIdentifier: 
-  unitsName: melee
-  cost: 1
+  unitsName: Caballero
+  cost: 3
   movementSpeed: 5
-  maxHealth: 50
-  damage: 5
-  attackSpeed: 1
-  range: 5
-  attackCooldown: 1
+  maxHealth: 690
+  damage: 79
+  attackSpeed: 1.2
+  range: 7
   attackType: 0
   ghostPrefab: {fileID: 104690471916583691, guid: a6039202bdc4a4e5b8bef7ab37e51211, type: 3}
   unitBluePrefab: {fileID: 121089003984463748, guid: 2a407398c78fc5848bb0ed6e6e59750f, type: 3}

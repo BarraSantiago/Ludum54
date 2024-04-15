@@ -13,7 +13,6 @@ public class UnitsDataSO : ScriptableObject
     public float damage;
     public float attackSpeed;
     public float range;
-    public float attackCooldown;
 
     public AttackType attackType;
 

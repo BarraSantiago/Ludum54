@@ -6,7 +6,7 @@ public class AttackableObject : MonoBehaviour, Attackable
 
     private float maxHealth = 100;
     private float health = 100;
-    private Team team = default;
+    protected Team team = default;
     public System.Action OnDie;
 
     public float Health { get => health; }

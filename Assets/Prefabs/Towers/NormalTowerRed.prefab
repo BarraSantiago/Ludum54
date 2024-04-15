@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: damage
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: health
@@ -121,8 +121,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6281495299700031295}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: attackSpeed
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
+      propertyPath: isMainTower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: towerMaxHealth
-      value: 1000
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 56653057553576997, guid: 998dbd835a78c7141b518b2fef408bbb, type: 3}
       propertyPath: basicProjectile
