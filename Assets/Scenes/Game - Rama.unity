@@ -992,6 +992,7 @@ MonoBehaviour:
   towers:
   - {fileID: 1231219179}
   - {fileID: 1134919546}
+  healthBar: {fileID: 0}
   energySlider: {fileID: 635888470}
   txtEnergy: {fileID: 521194911}
 --- !u!4 &632534977
@@ -1920,6 +1921,7 @@ MonoBehaviour:
   towers:
   - {fileID: 1175344344}
   - {fileID: 599682309}
+  healthBar: {fileID: 0}
   meleeSpawnPoints:
   - {fileID: 711648819}
   - {fileID: 415784846}
