@@ -140,6 +140,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5616834337968107327, guid: 4d26fc7398673df43b8599524f9222bb, type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 879691674}
+    - target: {fileID: 5616834337968107327, guid: 4d26fc7398673df43b8599524f9222bb, type: 3}
       propertyPath: audioMixer
       value: 
       objectReference: {fileID: 24100000, guid: 5098dbeafff5cec43b879d2c58e4761f, type: 2}
@@ -2230,6 +2234,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 340056733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &879691674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 534993672410785430, guid: 2cf3abf57eedb43dbb195eb55370e529, type: 3}
+  m_PrefabInstance: {fileID: 577530331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03542741e29dc654b984938f8243ccc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &955108305 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3761535898684893454, guid: 98fd521792ddeeb41a771c258825029a, type: 3}
