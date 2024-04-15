@@ -58,7 +58,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 94
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -152,6 +152,8 @@ MonoBehaviour:
   spawnProyectilePostion: {fileID: 945615720914876929}
   spawnProyectileParticles: {fileID: 5927164497405887157, guid: feaa318acea51d144b8638a0bbb768d5, type: 3}
   projectile: {fileID: 4432856982775035181, guid: 53ba3bc91b5d63d4fb6bc77435205d85, type: 3}
+  explotionParticles: {fileID: 0}
+  explotionArea: 10
   unitData: {fileID: 11400000, guid: 533701f4cbf264241b6799daf9cc8514, type: 2}
   target: {fileID: 0}
 --- !u!195 &2102116438080531554
