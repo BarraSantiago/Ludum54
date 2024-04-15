@@ -52,7 +52,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5957429290944232090, guid: a6039202bdc4a4e5b8bef7ab37e51211, type: 3}
+      propertyPath: m_Name
+      value: Model_Melee_red
+      objectReference: {fileID: 0}
     - target: {fileID: 6181106530397089879, guid: a6039202bdc4a4e5b8bef7ab37e51211, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f243107d2d6a47e38d5bd14a03f5cf0, type: 2}
+    - target: {fileID: 8813533559521284499, guid: a6039202bdc4a4e5b8bef7ab37e51211, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4f243107d2d6a47e38d5bd14a03f5cf0, type: 2}
