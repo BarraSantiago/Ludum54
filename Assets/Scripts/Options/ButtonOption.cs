@@ -10,7 +10,7 @@ public class ButtonOption : MonoBehaviour, IPointerEnterHandler
 
     private void Awake()
     {
-        rectTransform = (RectTransform)transform.GetChild(0).transform;
+        rectTransform = (RectTransform)transform;
     }
 
     public void Init(Action<RectTransform> onPointerEnter)
